@@ -1,0 +1,15 @@
+{
+  "removeProfileHeader": "Remove Player?",
+  "removeProfileConfirmButton": "Remove Player",
+  "removeProfileCancelButton": "Keep Player",
+  "removeProfilePara1": "will be completely removed from the Longetivity facility. You need re-create the player profile again if you want to add ",
+  "removeProfilePara2": "to the facility again.",
+  "cancelEditProfileHeader": "Cancel Changes ?",
+  "cancelEditProfilePara": "All of the changes that were made will not be applied to the original profile of ",
+  "cancelEditConfirmButton": "Cancel Changes",
+  "cancelEditCancelButton": "Keep Editing",
+  "confirmEditHeader": "Save Changes?",
+  "confirmEditPara1": "All of the changes that were made will be updated to the ",
+  "confirmEditPara2": "'s Profile.",
+  "confirmEditConfirmButton": "Save Changes"
+}

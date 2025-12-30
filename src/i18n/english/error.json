@@ -1,0 +1,8 @@
+{
+    "pageNotFound": {
+        "header": "Something Broke!",
+        "paragraph": "It seems you broke WePlay’s window. The Link has been either removed, or is temporarily unavailable.",
+        "goBackBtn": "Go Back To Previous Page",
+        "goHomeBtn": "Back to home"
+    }
+  }

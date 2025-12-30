@@ -1,0 +1,35 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "weplaymain",
+  "functionName": "weplaymainPostConfirmation",
+  "resourceName": "weplaymainPostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "C:\\snapshot\\amplify-cli\\build\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "weplaymainPostConfirmation",
+  "skipEdit": true,
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "weplaymainWePlayAppSyncResolversLayer",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "devenv"
+    }
+  ],
+  "permissions": {
+    "storage": {
+      "ContactEmails:@model(appsync)": [
+        "read"
+      ],
+      "ContactRoles:@model(appsync)": [
+        "read"
+      ]
+    }
+  }
+}

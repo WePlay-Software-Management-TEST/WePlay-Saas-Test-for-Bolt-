@@ -1,0 +1,192 @@
+{
+  "devenv": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-weplaymain-devenv-9a81d-authRole",
+      "UnauthRoleArn": "arn:aws:iam::610453888207:role/amplify-weplaymain-devenv-9a81d-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::610453888207:role/amplify-weplaymain-devenv-9a81d-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+      "UnauthRoleName": "amplify-weplaymain-devenv-9a81d-unauthRole",
+      "StackName": "amplify-weplaymain-devenv-9a81d",
+      "StackId": "arn:aws:cloudformation:us-west-1:610453888207:stack/amplify-weplaymain-devenv-9a81d/081717f0-4ed0-11ef-88d8-066c6e701ca5",
+      "AmplifyAppId": "d1mic720aon5ug",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-weplaymain-devenv-9a81d-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "function": {
+        "adminActionsResolver": {
+          "userPoolId": "us-west-1_SxCGWTj1s",
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/adminActionsResolver-72366f613446472f5161-build.zip"
+        },
+        "graphQlLambdaAuthorizer28ed4f1e": {
+          "clientId": "127m4baiq93lqgvuhj6ifg1d3v",
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/graphQlLambdaAuthorizer28ed4f1e-334342764b7572783563-build.zip"
+        },
+        "tournamentResolver": {
+          "playerPortalUrl": "https://main.d1fz2aw2moqeei.amplifyapp.com/",
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/tournamentResolver-306e4a75332f45456754-build.zip"
+        },
+        "weplaymainCustomMessage": {
+          "clientId": "127m4baiq93lqgvuhj6ifg1d3v",
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/weplaymainCustomMessage-724f6d626631622b682f-build.zip"
+        },
+        "weplaymainPreTokenGeneration": {
+          "accessKeyId": "AKIAY4IPDDTHRQUBBJPL",
+          "secretAccessKey": "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",
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/weplaymainPreTokenGeneration-78794e44514c536d4a59-build.zip"
+        },
+        "ConfirmAndRedirectUser": {
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/ConfirmAndRedirectUser-6a664f7a31624c776452-build.zip"
+        },
+        "createAPlayerMutation": {
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/createAPlayerMutation-77346b2b365a4f357036-build.zip"
+        },
+        "mutationCreateTeam": {
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/mutationCreateTeam-62625262656859764b6c-build.zip"
+        },
+        "notifyUsersByEmail": {
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/notifyUsersByEmail-31774c6971353178432f-build.zip"
+        },
+        "preSignUpTrigger": {
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/preSignUpTrigger-67527833623066326e67-build.zip"
+        },
+        "seedDynamoDBPolicyStore": {
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/seedDynamoDBPolicyStore-6d41624779394547336a-build.zip"
+        },
+        "teamsNotifyPlayersEmail": {
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/teamsNotifyPlayersEmail-3965575a786d3471314a-build.zip"
+        },
+        "weplaymainPostConfirmation": {
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/weplaymainPostConfirmation-3538796e696c66375751-build.zip"
+        },
+        "weplaymainWePlayAppSyncResolversLayer": {
+          "deploymentBucketName": "amplify-weplaymain-devenv-9a81d-deployment",
+          "s3Key": "amplify-builds/weplaymainWePlayAppSyncResolversLayer-LambdaLayerVersion963bbfaa-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1mic720aon5ug",
+          "type": "cicd"
+        }
+      },
+      "auth": {
+        "weplaymain": {}
+      },
+      "storage": {
+        "s3weplaymainstorage799b9673": {}
+      },
+      "api": {
+        "weplaymain": {}
+      }
+    }
+  },
+  "qa": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-weplaymain-qa-21249-authRole",
+      "UnauthRoleArn": "arn:aws:iam::610453888207:role/amplify-weplaymain-qa-21249-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::610453888207:role/amplify-weplaymain-qa-21249-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+      "UnauthRoleName": "amplify-weplaymain-qa-21249-unauthRole",
+      "StackName": "amplify-weplaymain-qa-21249",
+      "StackId": "arn:aws:cloudformation:us-west-1:610453888207:stack/amplify-weplaymain-qa-21249/8ee6da60-415a-11ee-bf49-023d530f314b",
+      "AmplifyAppId": "d1mic720aon5ug",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-weplaymain-qa-21249-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "function": {
+        "adminActionsResolver": {
+          "userPoolId": "us-west-1_OIs5hD6Zh",
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/adminActionsResolver-2b67616432444e33744d-build.zip"
+        },
+        "graphQlLambdaAuthorizer28ed4f1e": {
+          "clientId": "697qtc28dlrp7pseaqc26p5vkl",
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/graphQlLambdaAuthorizer28ed4f1e-6c674752724f74453070-build.zip"
+        },
+        "weplaymainCustomMessage": {
+          "clientId": "697qtc28dlrp7pseaqc26p5vkl",
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/weplaymainCustomMessage-754c356934757a656f77-build.zip"
+        },
+        "weplaymainPreTokenGeneration": {
+          "accessKeyId": "AKIAY4IPDDTHRQUBBJPL",
+          "secretAccessKey": "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",
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/weplaymainPreTokenGeneration-44463272453145673155-build.zip"
+        },
+        "ConfirmAndRedirectUser": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/ConfirmAndRedirectUser-3048454f2f736c4c7059-build.zip"
+        },
+        "createAPlayerMutation": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/createAPlayerMutation-376c6e6f2b566336516a-build.zip"
+        },
+        "mutationCreateTeam": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/mutationCreateTeam-697a76564c4b69637433-build.zip"
+        },
+        "notifyUsersByEmail": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/notifyUsersByEmail-562b7674394f4b415456-build.zip"
+        },
+        "seedDynamoDBPolicyStore": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/seedDynamoDBPolicyStore-486278764c47654f6243-build.zip"
+        },
+        "teamsNotifyPlayersEmail": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/teamsNotifyPlayersEmail-475743716e4654596263-build.zip"
+        },
+        "tournamentResolver": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/tournamentResolver-42534250356351397a38-build.zip",
+          "playerPortalUrl": "https://staging.d1fz2aw2moqeei.amplifyapp.com"
+        },
+        "weplaymainPostConfirmation": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/weplaymainPostConfirmation-3361642f57514c2f385a-build.zip"
+        },
+        "weplaymainWePlayAppSyncResolversLayer": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/weplaymainWePlayAppSyncResolversLayer-LambdaLayerVersiondd7cd930-build.zip"
+        },
+        "preSignUpTrigger": {
+          "deploymentBucketName": "amplify-weplaymain-qa-21249-deployment",
+          "s3Key": "amplify-builds/preSignUpTrigger-7a74595044754b76676b-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1mic720aon5ug",
+          "type": "cicd"
+        }
+      },
+      "auth": {
+        "weplaymain": {}
+      },
+      "storage": {
+        "s3weplaymainstorage799b9673": {}
+      },
+      "api": {
+        "weplaymain": {}
+      }
+    }
+  }
+}

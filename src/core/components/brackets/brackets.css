@@ -1,0 +1,323 @@
+.container {
+  width: 90%;
+  min-width: 18em;
+  margin: 20px auto;
+}
+.tournament-bracket {
+  display: flex;
+  flex-direction: row;
+}
+.tournament-bracket__round {
+  display: block;
+  margin-left: -1px;
+  flex: 1;
+}
+.tournament-bracket__list {
+  display: flex;
+  flex-direction: column;
+  flex-flow: row wrap;
+  justify-content: center;
+  height: 100%;
+  min-height: 100%;
+  border-bottom: 1px dashed #e5e5e5;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+  transition: padding 0.2s ease-in-out, margin 0.2s ease-in-out;
+}
+.tournament-bracket__round:first-child .tournament-bracket__item {
+  padding-left: 0;
+}
+.tournament-bracket__item:nth-child(odd),
+.tournament-bracket__item:nth-child(even) {
+  margin: 0;
+}
+
+.tournament-bracket__item {
+  padding: 16px 1em;
+  width: 100%;
+}
+.tournament-bracket__item::after {
+  width: calc(100% - 345px)
+}
+.tournament-bracket__round:first-of-type .tournament-bracket__item::after {
+width: calc(100% - 320px)
+}
+
+.tournament-bracket--rounded .tournament-bracket__item:nth-child(odd)::after {
+  border-top-right-radius: 8px;
+}
+
+.tournament-bracket__item:nth-child(odd)::after {
+  top: 50%;
+  border-top: 1px solid #E6E6E6;
+  transform: translateY(-1px);
+}
+
+.tournament-bracket-item-selected::after {
+  border-color: #4F33FF !important;
+}
+.tournament-match-selected::after,
+.tournament-match-selected::before {
+  border-left-color: #4F33FF !important;
+}
+
+.tournament-bracket__item::after {
+  transition: width 0.2s linear;
+}
+
+.tournament-bracket__item::after {
+  position: absolute;
+  right: 0;
+  content: '';
+  display: block;
+  width: 1em;
+  height: 45%;
+  border-right: 1px solid #E6E6E6;
+}
+
+  .tournament-bracket__match::before,
+  .tournament-bracket__match::after {
+    position: absolute;
+    left: 0;
+    z-index: -10;
+    content: '';
+    display: block;
+    width: 1em;
+    height: 10%;
+    border-left: 1px solid #E6E6E6;
+  }
+  .tournament-bracket__match::before {
+    bottom: 50%;
+    border-bottom: 1px solid #E6E6E6;
+    transform: translate(0, 1px);
+  }
+  .tournament-bracket--rounded .tournament-bracket__match::before {
+    border-bottom-left-radius: 0px;
+  }
+  .tournament-bracket__match::after {
+    top: 50%;
+    border-top: 1px solid #E6E6E6;
+    transform: translate(0, -1px);
+  }
+  .tournament-bracket--rounded:last-of-type .tournament-bracket__match::after {
+    border-top-left-radius: 0px;
+  }
+
+  .tournament-bracket__round:last-child .tournament-bracket__match::after {
+    border-top: 1px solid
+  }
+
+.tournament-bracket__round:last-child .tournament-bracket__list {
+  border: 0;
+}
+.tournament-bracket__item {
+  display: flex;
+  flex: 0 1 auto;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  padding: 2% 0;
+  width: 48%;
+  transition: padding 0.2s linear;
+}
+.tournament-bracket__item:nth-child(odd) {
+  margin-right: 2%;
+}
+.tournament-bracket__item:nth-child(even) {
+  margin-left: 2%;
+}
+.tournament-bracket__item::after {
+  transition: width 0.2s linear;
+}
+/* @media (max-width: 24em) {
+  .tournament-bracket__item {
+    width: 100%;
+  }
+  .tournament-bracket__item:nth-child(odd),
+  .tournament-bracket__item:nth-child(even) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+} */
+@media (min-width: 1em) {
+  .tournament-bracket__item {
+    padding: 16px 1em;
+    width: 100%;
+  }
+  .tournament-bracket__item:nth-child(odd),
+  .tournament-bracket__item:nth-child(even) {
+    margin: 0;
+  }
+  .tournament-bracket__item::after {
+    position: absolute;
+    right: 0;
+    content: '';
+    display: block;
+    width: 1em;
+    height: 45%;
+    border-right: 1px solid #E6E6E6;
+  }
+  .tournament-bracket__item:nth-child(odd)::after {
+    top: 50%;
+    border-top: 1px solid #E6E6E6;
+    transform: translateY(-1px);
+  }
+  .tournament-bracket--rounded .tournament-bracket__item:nth-child(odd)::after {
+    border-top-right-radius: 8px;
+  }
+  .tournament-bracket__item:nth-child(even)::after {
+    bottom: 50%;
+    border-bottom: 1px solid #E6E6E6;
+    transform: translateY(1px);
+  }
+  .tournament-bracket--rounded .tournament-bracket__item:nth-child(even)::after {
+    border-bottom-right-radius: 8px;
+  }
+
+  .tournament-bracket__round:last-child .tournament-bracket__item {
+    padding-right: 0;
+  }
+  .tournament-bracket__round:last-child .tournament-bracket__item::after {
+    display: none;
+  }
+  .tournament-bracket__item  .tournament-bracket-item-selected {
+    .tournament-bracket__round:nth-last-child(2) .tournament-bracket__item::after {
+      display: none;
+  }
+  }
+  
+}
+@media (min-width: 1em) {
+  .tournament-bracket__item {
+    padding: 0.5em 1.5em;
+  }
+  .tournament-bracket__item::after {
+    width: calc(100% - 345px)
+  }
+  .tournament-bracket__round:first-of-type .tournament-bracket__item::after {
+    width: calc(100% - 320px)
+  }
+}
+
+.tournament-bracket__match {
+  cursor: pointer;
+  transition: padding 0.2s ease-in-out, border 0.2s linear;
+}
+.tournament-bracket__match:focus {
+  border-color: #2196F3;
+}
+.tournament-bracket__match::before,
+.tournament-bracket__match::after {
+  transition: all 0.2s linear;
+  height: 50px !important;
+}
+
+.tournament-bracket-item-selected::after {
+  border-color: #4F33FF !important;
+}
+.tournament-match-selected::after,
+.tournament-match-selected::before {
+  border-left-color: #4F33FF !important;
+}
+
+.tournament-bracket__match::before {
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Inter, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #666666;
+}
+@media (min-width: 1em) {
+  .tournament-bracket__match::before,
+  .tournament-bracket__match::after {
+    position: absolute;
+    left: 0;
+    z-index: -10;
+    content: '';
+    display: block;
+    width: 1em;
+    height: 10%;
+    border-left: 1px solid #E6E6E6;
+  }
+  .tournament-bracket__match::before {
+    bottom: 50%;
+    border-bottom: 1px solid #E6E6E6;
+    transform: translate(0, 1px);
+  }
+  .tournament-bracket--rounded .tournament-bracket__match::before {
+    border-bottom-left-radius: 0px;
+  }
+  .tournament-bracket__match::after {
+    top: 50%;
+    border-top: 1px solid #E6E6E6;
+    transform: translate(0, -1px);
+  }
+  .tournament-bracket--rounded:last-of-type .tournament-bracket__match::after {
+    border-top-left-radius: 0px;
+  }
+
+  .tournament-bracket__round:last-child .tournament-bracket__match::after {
+    border-top: 1px solid
+  }
+}
+@media (min-width: 1em) {
+  .tournament-bracket__match::before,
+  .tournament-bracket__match::after {
+    width: 8.7rem;
+  
+  }
+}
+
+
+
+.tournament-bracket__match::before {
+  transform: translate(-100%, 1px);
+}
+.tournament-bracket__match::after {
+  transform: translate(-100%, -1px);
+}
+
+.tournament-bracket__round:first-of-type {
+  max-width: 370px;
+  min-width: 370px;
+  width: 370px;
+  margin-left: 0px;
+}
+
+.tournament-bracket__round {
+  margin-left: 113px;
+  width: 430px;
+  max-width: 430px;
+}
+
+.tournament-bracket__round:last-child .tournament-bracket__match::after {
+  border-top: 1px solid
+}
+.tournament-bracket__round:nth-child(2) .tournament-bracket__match::before,
+.tournament-bracket__round:nth-child(2) .tournament-bracket__match::after {
+  width: 8.7rem;
+
+}
+
+.tournament-bracket__round:last-child .tournament-bracket__match::before,
+.tournament-bracket__round:last-child .tournament-bracket__match::after {
+  height: 35px;
+  width: 8.7rem;
+
+}
+.tournament-bracket__round:last-child .tournament-bracket__match::before {
+  border-bottom-left-radius: 0;
+}
+.tournament-bracket__round:last-child .tournament-bracket__match::after {
+  border-color: #E6E6E6;
+}
+.tournament-bracket__round:first-child .tournament-bracket__match::before,
+.tournament-bracket__round:first-child .tournament-bracket__match::after {
+  display: none;
+}
+
+.tournament-bracket__round:nth-child(3) .tournament-bracket-item-selected::after {
+  display: none;
+}

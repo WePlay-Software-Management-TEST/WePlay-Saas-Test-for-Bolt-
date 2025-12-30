@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "storage": {
+      "TeamPlayers:@model(appsync)": [
+        "create",
+        "read",
+        "update"
+      ],
+      "Teams:@model(appsync)": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "weplaymainWePlayAppSyncResolversLayer",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "devenv"
+    }
+  ]
+}

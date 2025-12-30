@@ -1,0 +1,40 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "weplaymain",
+  "functionName": "weplaymainCustomMessage",
+  "resourceName": "weplaymainCustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "C:\\snapshot\\amplify-cli\\build\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "weplaymainCustomMessage",
+  "skipEdit": true,
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "clientId",
+      "environmentVariableName": "clientID"
+    }
+  ],
+  "permissions": {
+    "function": {
+      "ConfirmAndRedirectUser": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "storage": {
+      "ContactRoles:@model(appsync)": [
+        "read"
+      ],
+      "Businesses:@model(appsync)": [
+        "read"
+      ]
+    }
+  }
+}

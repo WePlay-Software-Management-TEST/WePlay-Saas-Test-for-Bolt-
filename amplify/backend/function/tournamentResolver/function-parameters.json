@@ -1,0 +1,72 @@
+{
+  "permissions": {
+    "storage": {
+      "TeamPlayers:@model(appsync)": [
+        "read"
+      ],
+      "Teams:@model(appsync)": [
+        "read"
+      ],
+      "ContactEmails:@model(appsync)": [
+        "read"
+      ],
+      "Tournaments:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "Matches:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "MatchParties:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "MatchesToReferees:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "TFGroups:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "TFGroupMatches:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "TournamentRulesVariables:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "weplaymainWePlayAppSyncResolversLayer",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "devenv"
+    }
+  ],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "playerPortalUrl",
+      "environmentVariableName": "PLAYER_PORTAL_URL"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "permissions": {
+    "storage": {
+      "TeamPlayers:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "PersonPreferences:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "ContactAddresses:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "ContactEmails:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "PlayerPositions:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "PlayerSoccerSkills:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "Contacts:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "weplaymainWePlayAppSyncResolversLayer",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "devenv"
+    }
+  ]
+}

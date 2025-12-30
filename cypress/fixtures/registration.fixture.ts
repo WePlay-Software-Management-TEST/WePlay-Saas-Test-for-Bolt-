@@ -1,0 +1,33 @@
+type Fixture = Record<string, string>;
+
+export const RegistrationFixture: Fixture = {
+  url: 'localhost:3000/signup',
+  emailSelector: 'registrationEmail',
+  confirmEmailButtonSelector: 'confirmEmailRegistration',
+  testUserPassword: 'Test@123456',
+  passwordSelector: 'passwordRegistration',
+  confirmPasswordSelector: 'confirmPasswordRegistration',
+  confirmPasswordButton: 'confirmPasswordButtonRegistration',
+  firstName: 'Bot@12',
+  lastName: 'BT-1372',
+  firstNameInputSelector: 'firstNameRegistration',
+  lastNameInputSelector: 'lastNameRegistration',
+  confirmUserInfoButtonSelector: 'confirmUserinfoButtonRegistration',
+  businessName: 'BotEnterprise Inc',
+  businessSize: '100+',
+  businessMailingAddress: '450 Lakeville Road, Lake Success, NY, USA',
+  businessNameSelector: 'companyNameRegistration',
+  businessSizeSelector: 'businessSizeRegistration',
+  businessMailingAddressSelector: 'facilityMailingAddressRegistration',
+  createAccountButtonSelector: 'createAccountButtonRegistration',
+  citySelector: 'cityRegistration',
+  stateSelector: 'StateRegistration',
+  zipCodeSelector: 'zipCodeRegistration',
+  inValidEmailAddress: 'dummybot!343*..com',
+  inputErrorSpan: 'input-error-span',
+  resendVerificationEmailButtonSelector: 'resendVerificationEmail',
+  cityValue: 'New York City',
+  stateValue: 'New York',
+  zipcodeValue: '75816',
+  invalidzipCode: 'ASDS888a'
+};

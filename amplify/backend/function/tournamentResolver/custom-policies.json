@@ -1,0 +1,12 @@
+[
+  {
+    "Effect": "Allow",
+      "Action": [
+        "ses:SendEmail"
+      ],
+      "Resource": [
+        "arn:aws:ses:us-west-1:610453888207:identity/*",
+        "arn:aws:ses:us-west-1:610453888207:configuration-set/*"
+      ]
+  }
+]

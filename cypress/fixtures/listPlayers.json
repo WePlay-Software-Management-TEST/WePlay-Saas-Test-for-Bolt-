@@ -1,0 +1,1260 @@
+{
+  "data": {
+      "listContacts": {
+          "items": [
+              {
+                  "id": "2f65a818-00c8-43d2-ac9a-5115d30921e1",
+                  "FirstName": "Rocker",
+                  "LastName": "Rocker11",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": 175.0,
+                  "Weight": 250.0,
+                  "Birthdate": "1999-12-31",
+                  "Gender": "OTHER",
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "This is a bio",
+                  "PhotoId": "cyberpunk_city_speedpaint_by_tryingtofly_d7hxult.jpg",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "73398571-b240-43be-96cd-0ffab5238db9",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-06-23T17:18:30.853Z",
+                      "updatedAt": "2023-06-23T17:18:30.853Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1687540710887
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "13a6439f-341c-4bc9-87c4-a3d3b384d442",
+                      "LeftRightFooted": "LEFT",
+                      "ExperienceLevel": "INTERMEDIATE",
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": "CENTER_BACK"
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-06-23T17:18:30.860Z",
+                      "updatedAt": "2023-06-23T17:18:30.860Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1687540710893,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-06-23T17:18:32.553Z",
+                  "updatedAt": "2023-06-23T17:18:32.553Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1687540712590,
+                  "contactsPersonPreferencesId": "73398571-b240-43be-96cd-0ffab5238db9",
+                  "contactsPlayerSoccerSkillsId": "13a6439f-341c-4bc9-87c4-a3d3b384d442"
+              },
+              {
+                  "id": "6526f219-f00b-4629-a341-c9dd82c7fd2a",
+                  "FirstName": "Oday",
+                  "LastName": "Hayek",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1997-03-04",
+                  "Gender": "FEMALE",
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "ryunosuke-kikuno-qCs9Q0GZJgU-unsplash.jpg",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "PersonPreferences": {
+                      "id": "1ca5cd64-f905-4f76-aa21-de249cd9abc8",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-04T02:33:35.079Z",
+                      "updatedAt": "2023-07-04T02:33:35.079Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688438015082
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "0f1b33c2-a64f-463f-a543-845cf9fd1f14",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-04T02:33:35.066Z",
+                      "updatedAt": "2023-07-04T02:33:35.066Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688438015069,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-04T02:33:36.135Z",
+                  "updatedAt": "2023-07-04T02:33:36.135Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688438016138,
+                  "contactsPersonPreferencesId": "1ca5cd64-f905-4f76-aa21-de249cd9abc8",
+                  "contactsPlayerSoccerSkillsId": "0f1b33c2-a64f-463f-a543-845cf9fd1f14"
+              },
+              {
+                  "id": "0b19937d-a5ee-4a96-88e8-2b8b6bc31570",
+                  "FirstName": "Oday",
+                  "LastName": "Hayek",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1999-01-01",
+                  "Gender": "MALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum\n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumasdasdasasdasdasasdasdasdasdasdasdasdas",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "56fc6dd1-8e19-4b1e-9ead-97316fbdb2be",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-07T12:54:15.202Z",
+                      "updatedAt": "2023-07-07T12:54:15.202Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688734455239
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "7430f856-3844-45ff-ab30-29637273e6b0",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": "RIGHT_BACK"
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-07T12:54:15.234Z",
+                      "updatedAt": "2023-07-07T12:54:15.234Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688734455272,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-07T12:54:17.070Z",
+                  "updatedAt": "2023-07-07T12:54:17.070Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688734457074,
+                  "contactsPersonPreferencesId": "56fc6dd1-8e19-4b1e-9ead-97316fbdb2be",
+                  "contactsPlayerSoccerSkillsId": "7430f856-3844-45ff-ab30-29637273e6b0"
+              },
+              {
+                  "id": "49d852e4-04da-46fe-9249-cec2adb1f917",
+                  "FirstName": "James",
+                  "LastName": "Bond",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1999-01-01",
+                  "Gender": "MALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "cef09309-3644-42a9-98a5-18a96f8d8267",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-06T14:26:48.578Z",
+                      "updatedAt": "2023-07-06T14:26:48.578Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688653608581
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "4911af30-924a-4d02-8bb2-30abedcf6399",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-06T14:26:48.538Z",
+                      "updatedAt": "2023-07-06T14:26:48.538Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688653608572,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-06T14:26:49.996Z",
+                  "updatedAt": "2023-07-06T14:26:49.996Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688653610000,
+                  "contactsPersonPreferencesId": "cef09309-3644-42a9-98a5-18a96f8d8267",
+                  "contactsPlayerSoccerSkillsId": "4911af30-924a-4d02-8bb2-30abedcf6399"
+              },
+              {
+                  "id": "fe44b43b-c4b2-4e20-8613-77c660377cc0",
+                  "FirstName": "Oday",
+                  "LastName": "Hayek",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1999-02-25",
+                  "Gender": "FEMALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "85e3b9cb-45a6-4bdc-81fd-7494c7e46551",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-06-26T03:11:41.750Z",
+                      "updatedAt": "2023-06-26T03:11:41.750Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1687749101784
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "af09cb40-4271-41df-8fe9-1cbfa5939b90",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-06-26T03:11:41.755Z",
+                      "updatedAt": "2023-06-26T03:11:41.755Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1687749101758,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-06-26T03:11:43.295Z",
+                  "updatedAt": "2023-06-26T03:11:43.295Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1687749103299,
+                  "contactsPersonPreferencesId": "85e3b9cb-45a6-4bdc-81fd-7494c7e46551",
+                  "contactsPlayerSoccerSkillsId": "af09cb40-4271-41df-8fe9-1cbfa5939b90"
+              },
+              {
+                  "id": "ea54ce70-9b50-4106-8a8b-46ed69628080",
+                  "FirstName": "Oday",
+                  "LastName": "hayek",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1999-01-02",
+                  "Gender": "FEMALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "cyberpunk_city_speedpaint_by_tryingtofly_d7hxult.jpg",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "d1c895d0-325b-4cee-a530-c3f4a4ce1f2d",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-02T11:11:26.027Z",
+                      "updatedAt": "2023-07-02T11:11:26.027Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688296286062
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "6f25a787-1174-431a-bbdc-a8fa5ccda6c5",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": "INTERMEDIATE",
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-02T11:11:26.018Z",
+                      "updatedAt": "2023-07-02T11:11:26.018Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688296286041,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-02T11:11:27.790Z",
+                  "updatedAt": "2023-07-02T11:11:27.790Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688296287793,
+                  "contactsPersonPreferencesId": "d1c895d0-325b-4cee-a530-c3f4a4ce1f2d",
+                  "contactsPlayerSoccerSkillsId": "6f25a787-1174-431a-bbdc-a8fa5ccda6c5"
+              },
+              {
+                  "id": "3e7292cd-49fb-4140-b6c0-d7a9b90d4ee4",
+                  "FirstName": "Jammmmmee",
+                  "LastName": "BOOOON",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1997-02-06",
+                  "Gender": "MALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "b50e5161-d3ae-4654-9cdb-0dd2c314dbec",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-06T14:38:17.746Z",
+                      "updatedAt": "2023-07-06T14:38:17.746Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688654297748
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "46fa4519-abf5-4f6c-b660-94d18c30e110",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-06T14:38:17.725Z",
+                      "updatedAt": "2023-07-06T14:38:17.725Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688654297728,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-06T14:38:18.994Z",
+                  "updatedAt": "2023-07-06T14:38:18.994Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688654298997,
+                  "contactsPersonPreferencesId": "b50e5161-d3ae-4654-9cdb-0dd2c314dbec",
+                  "contactsPlayerSoccerSkillsId": "46fa4519-abf5-4f6c-b660-94d18c30e110"
+              },
+              {
+                  "id": "8c919b5b-8854-42ab-a886-608f40582dd4",
+                  "FirstName": "Some",
+                  "LastName": "Dude",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1999-01-02",
+                  "Gender": "FEMALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "cyberpunk_city_speedpaint_by_tryingtofly_d7hxult.jpg",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "d1f22829-6585-4787-b439-ebaa7276c325",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-02T06:07:09.497Z",
+                      "updatedAt": "2023-07-02T06:07:09.497Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688278029529
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "81738812-af0b-4dbe-96d1-c5fc1bce42ef",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-02T06:07:09.480Z",
+                      "updatedAt": "2023-07-02T06:07:09.480Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688278029483,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-02T06:07:10.985Z",
+                  "updatedAt": "2023-07-02T06:07:10.985Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688278030987,
+                  "contactsPersonPreferencesId": "d1f22829-6585-4787-b439-ebaa7276c325",
+                  "contactsPlayerSoccerSkillsId": "81738812-af0b-4dbe-96d1-c5fc1bce42ef"
+              },
+              {
+                  "id": "3b7acb5a-e6ee-4c5a-8024-cb86ddc18a10",
+                  "FirstName": "Anything",
+                  "LastName": "Anythign",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1999-01-01",
+                  "Gender": "MALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets co It has survived not only five centuries, but also the leap int",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "217650e5-7ff8-47d8-99ae-b103a5d83773",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-07T15:35:40.444Z",
+                      "updatedAt": "2023-07-07T15:35:40.444Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688744140478
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "b963340f-4aed-41e4-b24f-0b2868d3576f",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-07T15:35:40.444Z",
+                      "updatedAt": "2023-07-07T15:35:40.444Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688744140446,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-07T15:35:41.763Z",
+                  "updatedAt": "2023-07-07T15:35:41.763Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688744141798,
+                  "contactsPersonPreferencesId": "217650e5-7ff8-47d8-99ae-b103a5d83773",
+                  "contactsPlayerSoccerSkillsId": "b963340f-4aed-41e4-b24f-0b2868d3576f"
+              },
+              {
+                  "id": "fe7487fb-6f92-4433-8937-13080ae915f2",
+                  "FirstName": "SomePlayer",
+                  "LastName": "AnotherOne",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": 106.68,
+                  "Weight": 180.0,
+                  "Birthdate": "1975-12-03",
+                  "Gender": "MALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "70642a1d-38eb-41a6-938c-dc4e92f575ae",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-02T05:39:43.474Z",
+                      "updatedAt": "2023-07-02T05:39:43.474Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688276383477
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "1958b223-c8fe-494f-a463-7e0fd101d6a0",
+                      "LeftRightFooted": "RIGHT",
+                      "ExperienceLevel": "ADVANCED",
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": "GOAL_KEEPER"
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-02T05:39:43.481Z",
+                      "updatedAt": "2023-07-02T05:39:43.481Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688276383483,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-02T05:39:44.530Z",
+                  "updatedAt": "2023-07-02T05:39:44.530Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688276384533,
+                  "contactsPersonPreferencesId": "70642a1d-38eb-41a6-938c-dc4e92f575ae",
+                  "contactsPlayerSoccerSkillsId": "1958b223-c8fe-494f-a463-7e0fd101d6a0"
+              },
+              {
+                  "id": "309180e9-08b6-44b9-8188-d1913652048d",
+                  "FirstName": "A First Name",
+                  "LastName": "A Name",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": 175.26,
+                  "Weight": 200.0,
+                  "Birthdate": "1987-02-02",
+                  "Gender": "FEMALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic",
+                  "PhotoId": "010c7a75-380a-4905-bcbd-7ab67c29aae8",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "92c4757b-b207-4473-9ddd-b9a2159e5643",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-06T04:18:08.195Z",
+                      "updatedAt": "2023-07-06T04:18:08.195Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688617088223
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "1fdf4c60-9c60-4b43-a659-40270f640d36",
+                      "LeftRightFooted": "LEFT",
+                      "ExperienceLevel": "ADVANCED",
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": "CENTER_BACK"
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-06T04:18:08.192Z",
+                      "updatedAt": "2023-07-06T04:18:08.192Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688617088227,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-06T04:18:09.328Z",
+                  "updatedAt": "2023-07-06T04:18:09.328Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688617089331,
+                  "contactsPersonPreferencesId": "92c4757b-b207-4473-9ddd-b9a2159e5643",
+                  "contactsPlayerSoccerSkillsId": "1fdf4c60-9c60-4b43-a659-40270f640d36"
+              },
+              {
+                  "id": "c7bc0c32-4a69-42f8-94c7-fa14f9b50d10",
+                  "FirstName": "Oday",
+                  "LastName": "Hayek",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1999-02-03",
+                  "Gender": "FEMALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "2f9e010e-b828-4b03-a8e0-6ec96bc84ae6",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-06-26T03:32:14.180Z",
+                      "updatedAt": "2023-06-26T03:32:14.180Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1687750334211
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "1a87c43e-d8ee-427e-9e69-ba6f8eeb41b2",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-06-26T03:32:14.203Z",
+                      "updatedAt": "2023-06-26T03:32:14.203Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1687750334237,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-06-26T03:32:15.352Z",
+                  "updatedAt": "2023-06-26T03:32:15.352Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1687750335391,
+                  "contactsPersonPreferencesId": "2f9e010e-b828-4b03-a8e0-6ec96bc84ae6",
+                  "contactsPlayerSoccerSkillsId": "1a87c43e-d8ee-427e-9e69-ba6f8eeb41b2"
+              },
+              {
+                  "id": "316bdfcb-fdd1-42c3-9848-e2bdf6c1c8b5",
+                  "FirstName": "Some",
+                  "LastName": "Player",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": 177.0,
+                  "Weight": 250.0,
+                  "Birthdate": "1987-01-02",
+                  "Gender": "MALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "A New Bio that we don't know of !!!",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "7087adc7-99ec-43e3-8007-77bbf75aed3f",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-02T05:15:52.959Z",
+                      "updatedAt": "2023-07-02T05:15:52.959Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688274952962
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "1b5e2094-6a70-4379-9865-564305183e76",
+                      "LeftRightFooted": "RIGHT",
+                      "ExperienceLevel": "INTERMEDIATE",
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": "CENTER_BACK"
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-02T05:15:53.066Z",
+                      "updatedAt": "2023-07-02T05:15:53.066Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688274953068,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-02T05:15:54.306Z",
+                  "updatedAt": "2023-07-02T05:15:54.306Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688274954309,
+                  "contactsPersonPreferencesId": "7087adc7-99ec-43e3-8007-77bbf75aed3f",
+                  "contactsPlayerSoccerSkillsId": "1b5e2094-6a70-4379-9865-564305183e76"
+              },
+              {
+                  "id": "77bb2c54-6724-4bbb-ab25-7316e077a77d",
+                  "FirstName": "Oday",
+                  "LastName": "hayek",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": 91.0,
+                  "Weight": null,
+                  "Birthdate": "1999-02-28",
+                  "Gender": "FEMALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "5060e311-71d4-4a0d-8817-780c9f2d8cf4",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-06-26T01:52:44.116Z",
+                      "updatedAt": "2023-06-26T01:52:44.116Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1687744364118
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "82e3006a-96cd-46f4-8908-488c22d21fdf",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-06-26T01:52:44.155Z",
+                      "updatedAt": "2023-06-26T01:52:44.155Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1687744364158,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-06-26T01:52:45.571Z",
+                  "updatedAt": "2023-06-26T01:52:45.571Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1687744365573,
+                  "contactsPersonPreferencesId": "5060e311-71d4-4a0d-8817-780c9f2d8cf4",
+                  "contactsPlayerSoccerSkillsId": "82e3006a-96cd-46f4-8908-488c22d21fdf"
+              },
+              {
+                  "id": "c2e96ce6-a579-4a2b-a11b-ed0ce59f5cb8",
+                  "FirstName": "Some other person",
+                  "LastName": "You don't know of",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1988-01-02",
+                  "Gender": "FEMALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "remy_loz-r3njN11yiZM-unsplash.jpg",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "54192b9b-7694-4894-9b1f-385d5dbd2edd",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-04T02:36:28.607Z",
+                      "updatedAt": "2023-07-04T02:36:28.607Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688438188610
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "c88c89ff-37e8-469b-8769-0410be858df2",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-04T02:36:28.594Z",
+                      "updatedAt": "2023-07-04T02:36:28.594Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688438188596,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-04T02:36:29.689Z",
+                  "updatedAt": "2023-07-04T02:36:29.689Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688438189691,
+                  "contactsPersonPreferencesId": "54192b9b-7694-4894-9b1f-385d5dbd2edd",
+                  "contactsPlayerSoccerSkillsId": "c88c89ff-37e8-469b-8769-0410be858df2"
+              },
+              {
+                  "id": "d9f5f120-ae9a-4a2b-801e-1f34cc13c33a",
+                  "FirstName": "Someone",
+                  "LastName": "I used to know",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1987-01-03",
+                  "Gender": "MALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "remy_loz-r3njN11yiZM-unsplash.jpg",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "40e17880-f2c5-4bf1-bf18-a60defd9f136",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-05T01:38:46.634Z",
+                      "updatedAt": "2023-07-05T01:38:46.634Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688521126665
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "75aa5d8e-2351-4231-bf75-7ddc766d0758",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-05T01:38:46.541Z",
+                      "updatedAt": "2023-07-05T01:38:46.541Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688521126544,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-05T01:38:48.047Z",
+                  "updatedAt": "2023-07-05T01:38:48.047Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688521128049,
+                  "contactsPersonPreferencesId": "40e17880-f2c5-4bf1-bf18-a60defd9f136",
+                  "contactsPlayerSoccerSkillsId": "75aa5d8e-2351-4231-bf75-7ddc766d0758"
+              },
+              {
+                  "id": "f92b62d1-be22-4b71-bc14-5fbefaec0b5c",
+                  "FirstName": "James",
+                  "LastName": "DHHH",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1987-02-03",
+                  "Gender": "FEMALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "9f8d2e2b-1037-44e9-a11d-4e589bcfdf27",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "4d55231c-adb9-4788-9753-50a4127ebff8",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-05T05:27:19.166Z",
+                      "updatedAt": "2023-07-05T05:27:19.166Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688534839167
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "25393d68-3905-418c-8f01-6301af500850",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-05T05:27:19.198Z",
+                      "updatedAt": "2023-07-05T05:27:19.198Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688534839200,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-05T05:27:20.645Z",
+                  "updatedAt": "2023-07-05T05:27:20.645Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688534840648,
+                  "contactsPersonPreferencesId": "4d55231c-adb9-4788-9753-50a4127ebff8",
+                  "contactsPlayerSoccerSkillsId": "25393d68-3905-418c-8f01-6301af500850"
+              },
+              {
+                  "id": "28569a49-c98d-4d99-a2fc-f558339cbca8",
+                  "FirstName": "James",
+                  "LastName": "Dean",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1987-02-03",
+                  "Gender": "MALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "Ayeo",
+                  "PhotoId": "cyberpunk_city_speedpaint_by_tryingtofly_d7hxult.jpg",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "6c8fca4f-90ff-4c1b-8231-a2ff37d50293",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-04T02:25:10.511Z",
+                      "updatedAt": "2023-07-04T02:25:10.511Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688437510514
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "234e4fa4-a6d7-4eea-9907-7d4a931fde84",
+                      "LeftRightFooted": "LEFT",
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": "LEFT_BACK"
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-04T02:25:10.504Z",
+                      "updatedAt": "2023-07-04T02:25:10.504Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688437510506,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-04T02:25:11.983Z",
+                  "updatedAt": "2023-07-04T02:25:11.983Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688437511986,
+                  "contactsPersonPreferencesId": "6c8fca4f-90ff-4c1b-8231-a2ff37d50293",
+                  "contactsPlayerSoccerSkillsId": "234e4fa4-a6d7-4eea-9907-7d4a931fde84"
+              },
+              {
+                  "id": "9aeecc66-3691-4f8a-9dcb-abf6b7a74e27",
+                  "FirstName": "James",
+                  "LastName": "Dean",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": 180.0,
+                  "Weight": 250.0,
+                  "Birthdate": "2000-01-07",
+                  "Gender": "MALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": null,
+                  "PhotoId": null,
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": null,
+                  "PlayerSoccerSkills": null,
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-05T02:00:56.581Z",
+                  "updatedAt": "2023-07-05T02:00:56.581Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688522456584,
+                  "contactsPersonPreferencesId": null,
+                  "contactsPlayerSoccerSkillsId": null
+              },
+              {
+                  "id": "6c9e10c2-4938-42cb-9b3b-fe41bd75fe70",
+                  "FirstName": "Hello",
+                  "LastName": "Bond",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1994-02-04",
+                  "Gender": "OTHER",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "b8155be2-0eba-4342-b469-7c7ca5330853",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-06T14:19:18.294Z",
+                      "updatedAt": "2023-07-06T14:19:18.294Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688653158326
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "2364c4cd-c0d9-4422-aec6-9984d889b40b",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-06T14:19:18.298Z",
+                      "updatedAt": "2023-07-06T14:19:18.298Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688653158301,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-06T14:19:19.786Z",
+                  "updatedAt": "2023-07-06T14:19:19.786Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688653159790,
+                  "contactsPersonPreferencesId": "b8155be2-0eba-4342-b469-7c7ca5330853",
+                  "contactsPlayerSoccerSkillsId": "2364c4cd-c0d9-4422-aec6-9984d889b40b"
+              },
+              {
+                  "id": "bc3e136c-3f4d-4025-9db6-46ac01661fc1",
+                  "FirstName": "James",
+                  "LastName": "Another one",
+                  "businessesID": "4ad208c7-6299-490c-ae03-889cca6a6434",
+                  "Height": null,
+                  "Weight": null,
+                  "Birthdate": "1999-01-01",
+                  "Gender": "FEMALE",
+                  "ContactRoles": {
+                    "nextToken": null,
+                    "items": [],
+                    "startedAt": null
+                },
+                  "ContactEmails": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "Biography": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "PhotoId": "",
+                  "ContactAddresses": {
+                      "nextToken": null,
+                      "startedAt": null
+                  },
+                  "PersonPreferences": {
+                      "id": "0da6b21d-bca5-42a7-804f-1b2d04ff43fa",
+                      "LengthUnit": "METRIC",
+                      "WeightUnit": "IMPERIAL",
+                      "createdAt": "2023-07-07T12:40:57.390Z",
+                      "updatedAt": "2023-07-07T12:40:57.390Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688733657421
+                  },
+                  "PlayerSoccerSkills": {
+                      "id": "7c2bfacf-01b8-4120-afb5-cf6fc659082c",
+                      "LeftRightFooted": null,
+                      "ExperienceLevel": null,
+                      "PlayerPositions": {
+                          "items": [
+                              {
+                                  "Position": null
+                              }
+                          ]
+                      },
+                      "createdAt": "2023-07-07T12:40:57.375Z",
+                      "updatedAt": "2023-07-07T12:40:57.375Z",
+                      "_version": 1,
+                      "_deleted": null,
+                      "_lastChangedAt": 1688733657405,
+                      "owner": "d13da062-d24f-4f60-879b-3ec118a139fe"
+                  },
+                  "owner": "d13da062-d24f-4f60-879b-3ec118a139fe",
+                  "createdAt": "2023-07-07T12:40:58.502Z",
+                  "updatedAt": "2023-07-07T12:40:58.502Z",
+                  "_version": 1,
+                  "_deleted": null,
+                  "_lastChangedAt": 1688733658534,
+                  "contactsPersonPreferencesId": "0da6b21d-bca5-42a7-804f-1b2d04ff43fa",
+                  "contactsPlayerSoccerSkillsId": "7c2bfacf-01b8-4120-afb5-cf6fc659082c"
+              }
+          ],
+          "nextToken": null,
+          "startedAt": null
+      }
+  }
+}

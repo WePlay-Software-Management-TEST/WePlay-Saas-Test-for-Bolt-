@@ -1,0 +1,26 @@
+## [Start] Authorization Steps. **
+$util.qr($ctx.stash.put("hasAuth", true))
+#set( $isAuthorized = false )
+#if( $util.authType() == "Lambda Authorization" )
+  #if( !$isAuthorized )
+    #set( $primaryRole0 = $util.defaultIfNull($ctx.identity.resolverContext.get("businessId"), null) )
+    #if( !$util.isNull($primaryRole0) )
+
+      #set( $ownerClaimsList0 = [] )
+      #if( (!$util.isNull($ctx.source.businessesID)) && (($ctx.source.businessesID == $primaryRole0) || $ownerClaimsList0.contains($ctx.source.businessesID)) )
+        #set( $isAuthorized = true )
+        $util.qr($ctx.stash.put("authFilter", null))
+      #else
+        #if( !$isAuthorized && $util.isNull($ctx.stash.authFilter) )
+          $util.qr($ctx.stash.connectionAttributes.put("id", $primaryRole0))
+          #set( $isAuthorized = true )
+        #end
+      #end
+    #end
+  #end
+#end
+#if( !$isAuthorized && $util.isNull($ctx.stash.authFilter) )
+  $util.unauthorized()
+#end
+$util.toJson({"version":"2018-05-29","payload":{}})
+## [End] Authorization Steps. **

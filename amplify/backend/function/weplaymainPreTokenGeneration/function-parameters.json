@@ -1,0 +1,33 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "weplaymain",
+  "functionName": "weplaymainPreTokenGeneration",
+  "resourceName": "weplaymainPreTokenGeneration",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "C:\\snapshot\\amplify-cli\\build\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PreTokenGeneration",
+  "triggerTemplate": "PreTokenGeneration.json.ejs",
+  "triggerEventPath": "PreTokenGeneration.event.json",
+  "roleName": "weplaymainPreTokenGeneration",
+  "skipEdit": true,
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "accessKeyId",
+      "environmentVariableName": "ACCESS_KEY_ID"
+    },
+    {
+      "cloudFormationParameterName": "secretAccessKey",
+      "environmentVariableName": "SECRET_ACCESS_KEY"
+    }
+  ],
+  "permissions": {
+    "api": {
+      "weplaymain": [
+        "Query"
+      ]
+    }
+  }
+}

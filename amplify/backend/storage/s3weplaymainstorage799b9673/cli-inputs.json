@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3weplaymainstorage799b9673",
+  "bucketName": "weplaymain-storage-799b9673",
+  "policyUUID": "6f62350f",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

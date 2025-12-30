@@ -1,0 +1,24 @@
+{
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "weplaymainWePlayAppSyncResolversLayer",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "devenv"
+    }
+  ],
+  "permissions": {
+    "auth": {
+      "weplaymain": [
+        "read"
+      ]
+    }
+  },
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "clientId",
+      "environmentVariableName": "clientID"
+    }
+  ]
+}

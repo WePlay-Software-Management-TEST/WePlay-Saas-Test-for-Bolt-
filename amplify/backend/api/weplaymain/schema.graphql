@@ -1,0 +1,1139 @@
+type TeamPlayers @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  contactsID: ID! @index(name: "byContacts")
+  teamsID: ID! @index(name: "byTeams")
+  IsCaptain: Boolean!
+  owner: String
+  businessesID: String
+}
+
+type Teams @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  TeamName: String!
+  Description: String
+  PhotoId: String
+  City: String
+  County: String
+  State: String
+  owner: String
+  businessesID: String
+  TeamPlayers: [TeamPlayers] @hasMany(indexName: "byTeams", fields: ["id"])
+  TeamsToDivisions: [TeamsToDivisions] @hasMany(indexName: "byTeams", fields: ["id"])
+  SportType: SportType @default(value: "SOCCER")
+}
+
+enum MeasurementUnitTypes {
+  METRIC
+  IMPERIAL
+}
+
+type PersonPreferences @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  LengthUnit: MeasurementUnitTypes
+  WeightUnit: MeasurementUnitTypes
+  businessesID: String
+  owner: String
+}
+
+type ContactAddresses @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  City: String
+  State: String
+  PostalCode: String
+  businessesID: String
+  owner: String
+  contactsID: ID! @index(name: "byContacts")
+}
+
+type ContactEmails @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  Email: AWSEmail
+  businessesID: String
+  owner: String
+  contactsID: ID! @index(name: "byContacts")
+}
+
+enum GenderTypes {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum SoccerExperienceLevelTypes {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+type PlayerPositions
+  @model(subscriptions: null)
+  @auth(rules: [{ allow: custom }])
+  {
+  id: ID!
+  businessesID: String
+  Position: SoccerPositionTypes
+  owner: String
+  playersoccerskillsID: ID! @index(name: "byPlayerSoccerSkills")
+}
+
+enum SoccerPositionTypes {
+  GOALKEEPER
+  RIGHT_BACK
+  CENTER_BACK
+  LEFT_BACK
+  SWEEPER
+  RIGHT_MIDFIELDER
+  LEFT_MIDFIELDER
+  CENTRAL_MIDFIELDER
+  RIGHT_FORWARD
+  LEFT_FORWARD
+  STRIKER
+}
+
+enum FootPreferenceTypes {
+  LEFT
+  RIGHT
+  BOTH
+}
+
+type PlayerSoccerSkills @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  LeftRightFooted: FootPreferenceTypes
+  PlayerPositions: [PlayerPositions]
+    @hasMany(indexName: "byPlayerSoccerSkills", fields: ["id"])
+  ExperienceLevel: SoccerExperienceLevelTypes
+  businessesID: String
+  owner: String
+}
+
+type Contacts @model(subscriptions: null)  @auth(rules: [{ allow: custom }, { allow: private, provider: iam, operations: [read] }, { allow: public }]) {
+  id: ID!
+  FirstName: String!
+  LastName: String
+  businessesID: ID! @index(name: "byBusinesses")
+  Height: Float
+  Weight: Float
+  Birthdate: AWSDate
+  Gender: GenderTypes
+  ContactEmails: [ContactEmails]
+    @hasMany(indexName: "byContacts", fields: ["id"])
+  Biography: String
+  PhotoId: String
+  owner: String
+  ContactAddresses: [ContactAddresses]
+    @hasMany(indexName: "byContacts", fields: ["id"])
+  PersonPreferences: PersonPreferences @hasOne
+  PlayerSoccerSkills: PlayerSoccerSkills @hasOne
+  RefereeInformation: RefereeInformation @hasOne
+  TeamPlayers: [TeamPlayers] @hasMany(indexName: "byContacts", fields: ["id"])
+  ContactRoles: [ContactRoles] @hasMany(indexName: "byContacts", fields: ["id"])
+}
+
+type RefereeInformation @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  yearsOfExperience: String
+  isCertified: Boolean
+  hasDoneBackgroundCheck: Boolean
+  businessesID: String
+  owner: String
+}
+
+type ContactRoles @model(subscriptions: null) @auth(rules: [{ allow: custom }, { allow: private, provider: iam, operations: [read] }, { allow: public }]) {
+  id: ID!
+  contactsID: ID! @index(name: "byContacts")
+  rolesID: ID! @index(name: "byRoles")
+  businessesID: ID
+  owner: String
+}
+
+enum roleTypes {
+  INTERNAL_ADMIN
+  ADMIN
+  REFEREE
+}   
+type Role @model(subscriptions: null) @auth(rules: [{ allow: custom }, { allow: private, provider: iam, operations: [read] }, { allow: public }]) {
+  id: ID!
+  RoleName: roleTypes!
+  Precedence: Int!
+  Description: String
+  businessesID: ID
+  ContactRoles: [ContactRoles] @hasMany(indexName: "byRoles", fields: ["id"])
+}
+
+type Policy @model(subscriptions: null) @auth(rules: [{ allow: custom }, { allow: private, provider: iam, operations: [read] }, { allow: public }]) {
+  id: ID!
+  Role: Role! @hasOne
+  Action: Action! @hasOne
+  Resource: Resource! @hasOne
+  DeniedFields: [String]
+  OnlyOnOwn: Boolean
+  Description: String
+  businessesID: ID
+}
+
+type Resource @model(subscriptions: null) @auth(rules: [{ allow: custom }, { allow: private, provider: iam, operations: [read] }, { allow: public }]){
+  id: ID!
+  ResourceName: String!
+  Description: String
+}
+
+type Action @model(subscriptions: null) @auth(rules: [{ allow: custom }, { allow: private, provider: iam, operations: [read] }, { allow: public }]) {
+  id: ID!
+  actionName: String!
+  Description: String
+}
+
+type BusinessAddresses @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  StreetAddress: String!
+  StreetAddress2: String
+  City: String!
+  State: String
+  PostalCode: String
+  Country: String!
+  businessesID: ID! @index(name: "byBusinesses")
+  owner: String
+}
+
+type Businesses @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  owner: String
+  BusinessName: String!
+  BusinessSize: String
+  Contacts: [BusinessAddresses]
+    @hasMany(indexName: "byBusinesses", fields: ["id"])
+  BusinessAddresses: [BusinessAddresses]
+    @hasMany(indexName: "byBusinesses", fields: ["id"])
+}
+
+type Fields @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  fieldName: String!
+  fieldLocation: String!
+  owner: String
+  businessesID: String
+}
+
+type Tournaments @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  businessesID: String
+  tournamentName: String!
+  tournamentImageId: String
+  tournamentDescription: String
+  customRules: String
+  TFGroups: [TFGroups] @hasMany(indexName: "byTournaments", fields: ["id"])
+  SportType: SportType
+  TournamentFormatType: TournamentFormatType
+  TournamentRulesVariables: [TournamentRulesVariables] @hasMany(indexName: "byTournaments", fields: ["id"])
+  haveEnded: Boolean
+  owner: String
+}
+
+type Matches @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  beginTime: AWSDateTime
+  matchDescription: String
+  MatchParties: [MatchParties] @hasMany(indexName: "byMatch", fields: ["id"])
+  owner: String
+  Field: Fields @hasOne
+  MatchesToReferees: [MatchesToReferees] @hasMany(indexName: "byMatch", fields: ["id"])
+  businessesID: String
+  TFGroupMatches: ID @index(name: "byTFGroupMatches")
+  endTime: AWSDateTime
+}
+
+type MatchParties @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  matchID: ID! @index(name: "byMatch")
+  contact: Contacts @hasOne
+  team: Teams @hasOne
+  matchPartyPosition: MatchPartyPosition
+  points: [MatchPartyPoints] @hasMany(indexName: "byMatchParty", fields: ["id"])
+  owner: String
+  businessesID: String
+}
+
+type MatchPartyPoints @model(subscriptions: null) @auth(rules: [{ allow: custom}]) {
+  id: ID
+  matchParty: ID! @index(name: "byMatchParty")
+  contact: Contacts @hasOne
+  scoredAt: AWSDateTime
+  team: Teams @hasOne
+}
+
+enum MatchPartyPosition {
+  HOME
+  AWAY
+}
+
+type MatchesToReferees @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  matchID: ID @index(name: "byMatch")
+  contactID: Contacts @hasOne
+  refereeRoleId: RefereeTypes
+  owner: String
+  businessesID: String
+}
+enum RefereeTypes {
+  MAIN_REFEREES
+  LINE_REFEREES
+}
+enum SportType {
+  SOCCER
+}
+
+type Divisions @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  owner: String
+  businessesID: String
+  DivisionName: String!
+  TeamsToDivisions: [TeamsToDivisions] @hasMany(indexName: "byDivision", fields: ["id"])
+}
+
+type TeamsToDivisions @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  teamID: ID @index(name: "byTeams")
+  divisionID: ID @index(name: "byDivision")
+  division: Divisions @belongsTo(fields: ["divisionID"])
+}
+
+type TFGroups @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  owner: String
+  businessesID: String
+  tournamentID: ID! @index(name: "byTournaments")
+  groupName: String!
+  TFGroupMatches: [TFGroupMatches] @hasMany(indexName: "byTFGroups", fields: ["id"])
+}
+
+type TFGroupMatches @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  groupID: ID! @index(name: "byTFGroups")
+  Matches: [Matches] @hasMany(indexName: "byTFGroupMatches", fields: ["id"])
+  owner: String
+  businessesID: String
+}
+
+
+enum TournamentFormatType {
+  ROUNDROBIN
+  SINGLE_ELIMINATION
+}
+
+type TFToSports @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  SportType: SportType
+  TournamentFormatType: [TournamentFormatType]
+}
+
+# Rule should have the following syntax:
+# {VarA} should have {VarB} in {VarC}
+
+type TournamentRules @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  Rule: String!
+  Description: String
+  TRulesToTFormat: [TRulesToTFormat] @hasMany(indexName: "byTournamentRules", fields: ["id"])
+  TournamentRulesVariables: [TournamentRulesVariables] @hasMany(indexName: "byTournamentRules", fields: ["id"])
+}
+
+type TournamentRulesVariables @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  ruleVariables: AWSJSON!
+  ruleID: ID @index(name: "byTournamentRules")
+  owner: String
+  businessesID: String
+  tournamentID: ID @index(name: "byTournaments")
+  rule: TournamentRules @belongsTo(fields: ["ruleID"])
+}
+
+type TRulesToTFormat @model(subscriptions: null) @auth(rules: [{ allow: custom }]) {
+  id: ID
+  TournamentFormatType: TournamentFormatType
+  ruleID: ID @index(name: "byTournamentRules")
+  rule: TournamentRules @belongsTo(fields: ["ruleID"])
+}
+
+input CreateContactsInputModel {
+  id: ID
+  FirstName: String!
+  LastName: String!
+  Biography: String
+  PhotoId: String
+  PreferredPositition: InsertPlayerPositionsInput
+  Birthdate: String!
+  PlayerSoccerSkills: InsertPlayerSoccerSkillsInput
+  Height: Float
+  Gender: GenderTypes
+  Weight: Float
+  teams: [TeamBulkInputModel!]
+  ContactEmails: InsertContactEmailsInput
+  ContactAddresses: InsertContactAddressesInput
+}
+
+input InsertContactEmailsInput {
+  id: ID
+  Email: String!
+  contactsID: ID
+}
+
+input InsertContactAddressesInput {
+  id: ID
+  City: String!
+  State: String!
+  PostalCode: String!
+  contactsID: ID
+}
+
+input InsertPlayerPositionsInput {
+  id: ID
+  Position: SoccerPositionTypes
+  playersoccerskillsID: ID
+}
+
+input InsertPlayerSoccerSkillsInput {
+  id: ID
+  LeftRightFooted: FootPreferenceTypes
+  ExperienceLevel: SoccerExperienceLevelTypes
+}
+
+input UpdateContactEmailsInput {
+  id: ID!
+  Email: String
+  contactsID: ID
+  _version: Int
+}
+
+input UpdateContactAddressesInput {
+  id: ID!
+  City: String
+  State: String
+  PostalCode: String
+  contactsID: ID
+  _version: Int
+}
+
+input UpdatePlayerPositionsInput {
+  id: ID!
+  Position: SoccerPositionTypes
+  playersoccerskillsID: ID
+  _version: Int
+}
+
+input UpdatePlayerSoccerSkillsInput {
+  id: ID!
+  LeftRightFooted: FootPreferenceTypes
+  ExperienceLevel: SoccerExperienceLevelTypes
+  _version: Int
+}
+
+input updateContactsInputModel {
+  id: ID!
+  FirstName: String
+  LastName: String
+  Biography: String
+  PhotoId: String
+  PreferredPositition: UpdatePlayerPositionsInput
+  Birthdate: String
+  PlayerSoccerSkills: UpdatePlayerSoccerSkillsInput
+  Height: Float
+  Gender: GenderTypes
+  Weight: Float
+  _version: Float!
+  teams: [TeamBulkInputModel!]
+  ContactEmails: UpdateContactEmailsInput
+  ContactAddresses: UpdateContactAddressesInput
+}
+
+input TeamBulkInputModel {
+  teamsID: ID!
+  IsCaptain: Boolean!
+}
+
+input TeamPlayerBulkInputModel {
+  contactsID: ID!
+  IsCaptain: Boolean!
+}
+
+input insertTeamInputModel {
+  id: ID
+  TeamName: String!
+  Description: String
+  PhotoId: String
+  City: String!
+  County: String!
+  State: String!
+  TeamPlayers: [TeamPlayerBulkInputModel!]
+}
+
+input updateTeamInputModel {
+  id: ID!
+  TeamName: String
+  Description: String
+  PhotoId: String
+  City: String
+  County: String
+  State: String
+  _version: Float!
+  TeamPlayers: [TeamPlayerBulkInputModel!]
+}
+
+input createUserInput {
+  Email: String!
+  Role: String!
+  RedirectURL: String!
+}
+
+input UpdateContactRolesInput {
+  id: ID!,
+  _version: Float!
+  contactsID: ID!
+}
+
+input deleteUserInput {
+  id: ID!
+  ContactEmails: ID
+  ContactAddresses: ID
+  ContactRoles: ID
+}
+
+input TournamentsInput {
+  id: ID
+  businessesID: String
+  tournamentName: String!
+  tournamentImageId: String
+  tournamentDescription: String
+  SportType: SportType
+  TournamentFormatType: TournamentFormatType
+  owner: String
+  _version: Int
+}
+
+input TFGroupsInput {
+  id: ID
+  owner: String
+  businessesID: String
+  tournamentID: ID!
+  groupName: String!
+  _version: Int
+}
+
+input TournamentRulesVariablesInput {
+  id: ID
+  ruleVariables: AWSJSON!
+  ruleID: ID
+  owner: String
+  businessesID: String
+  tournamentID: ID
+  _version: Int
+}
+
+input MatchesToRefereesInput {
+  id: ID
+  matchID: ID
+  refereeRoleId: RefereeTypes
+  owner: String
+  businessesID: String
+  _version: Int
+  matchesToRefereesContactIDId: ID
+}
+
+input MatchPartiesInput {
+  id: ID
+  matchID: ID!
+  points: Float
+  owner: String
+  businessesID: String
+  matchPartyPosition: MatchPartyPosition
+  _version: Int
+  matchPartiesContactId: ID
+  matchPartiesTeamId: ID
+}
+
+input MatchesInput {
+  id: ID
+  beginTime: AWSDateTime
+  matchDescription: String
+  owner: String
+  businessesID: String
+  TFGroupMatches: ID
+  _version: Int
+  matchesFieldId: ID
+}
+
+input TFGroupMatchesInput {
+  id: ID
+  groupID: ID!
+  owner: String
+  businessesID: String
+  _version: Int
+}
+
+input tourneyInputResolver {
+  createTournament: TournamentsInput
+  tournamentRulesVariables: [TournamentRulesVariablesInput]
+  groups: [TFGroupsInput]
+  matchesToReferees: [MatchesToRefereesInput]
+  matchesParties: [MatchPartiesInput]
+  matches: [MatchesInput]
+  tfGroupMatchs: [TFGroupMatchesInput]
+  changedFormat: Boolean
+  fieldDetailsChanged: Boolean
+  originalTourney: AWSJSON
+}
+
+
+type Mutation {
+  insertTeam(input: insertTeamInputModel!): Teams
+    @function(name: "mutationCreateTeam-${env}", region: "us-west-1")
+    @auth(rules: [{ allow: custom }])
+  updateTeam(input: updateTeamInputModel!): Teams
+    @function(name: "mutationCreateTeam-${env}", region: "us-west-1")
+    @auth(rules: [{ allow: custom }])
+  insertPlayer(input: CreateContactsInputModel!): Contacts
+    @function(name: "createAPlayerMutation-${env}", region: "us-west-1")
+    @auth(rules: [{ allow: custom }])
+  updatePlayer(input: updateContactsInputModel!): Contacts
+    @function(name: "createAPlayerMutation-${env}", region: "us-west-1")
+    @auth(rules: [{ allow: custom }])
+  createUser(input: createUserInput!): String
+    @function(name: "adminActionsResolver-${env}", region: "us-west-1")
+    @auth(rules: [{ allow: custom }])
+  deleteUser(input: deleteUserInput!): String
+    @function(name: "adminActionsResolver-${env}", region: "us-west-1")
+    @auth(rules: [{ allow: custom }])
+  createTourney(input: tourneyInputResolver!): String
+    @function(name: "tournamentResolver-${env}", region: "us-west-1")
+    @auth(rules: [{ allow: custom }])
+  updateTourney(input: tourneyInputResolver!): String
+    @function(name: "tournamentResolver-${env}", region: "us-west-1")
+    @auth(rules: [{ allow: custom }])
+}
+
+## Filter input, Override autogenerated Amplify Filter model, to enable _deleted filter.
+
+input ModelFloatInput {
+	ne: Float
+	eq: Float
+	le: Float
+	lt: Float
+	ge: Float
+	gt: Float
+	between: [Float]
+	attributeExists: Boolean
+}
+
+input ModelFootPreferenceTypesInput {
+	eq: FootPreferenceTypes
+	ne: FootPreferenceTypes
+}
+
+input ModelGenderTypesInput {
+	eq: GenderTypes
+	ne: GenderTypes
+}
+
+input ModelIDInput {
+	ne: ID
+	eq: ID
+	le: ID
+	lt: ID
+	ge: ID
+	gt: ID
+	contains: ID
+	notContains: ID
+	between: [ID]
+	beginsWith: ID
+	attributeExists: Boolean
+	size: ModelSizeInput
+}
+
+input ModelIntInput {
+	ne: Int
+	eq: Int
+	le: Int
+	lt: Int
+	ge: Int
+	gt: Int
+	between: [Int]
+	attributeExists: Boolean
+}
+input ModelSizeInput {
+	ne: Int
+	eq: Int
+	le: Int
+	lt: Int
+	ge: Int
+	gt: Int
+	between: [Int]
+}
+
+input ModelSoccerExperienceLevelTypesInput {
+	eq: SoccerExperienceLevelTypes
+	ne: SoccerExperienceLevelTypes
+}
+
+input ModelSoccerPositionTypesInput {
+	eq: SoccerPositionTypes
+	ne: SoccerPositionTypes
+}
+
+enum ModelSortDirection {
+	ASC
+	DESC
+}
+
+input ModelSportTypeInput {
+	eq: SportType
+	ne: SportType
+}
+
+input ModelStringInput {
+	ne: String
+	eq: String
+	le: String
+	lt: String
+	ge: String
+	gt: String
+	contains: String
+	notContains: String
+	between: [String]
+	beginsWith: String
+	attributeExists: Boolean
+	size: ModelSizeInput
+}
+
+input ModelMatchPartyPositionInput {
+	eq: MatchPartyPosition
+	ne: MatchPartyPosition
+}
+
+input ModelRefereeTypesInput {
+	eq: RefereeTypes
+	ne: RefereeTypes
+}
+
+input ModelMeasurementUnitTypesInput {
+	eq: MeasurementUnitTypes
+	ne: MeasurementUnitTypes
+}
+
+input ModelroleTypesInput {
+	eq: roleTypes
+	ne: roleTypes
+}
+
+input ModelTournamentFormatTypeInput {
+	eq: TournamentFormatType
+	ne: TournamentFormatType
+}
+
+input ModelTournamentFormatTypeListInput {
+	eq: [TournamentFormatType]
+	ne: [TournamentFormatType]
+	contains: TournamentFormatType
+	notContains: TournamentFormatType
+}
+
+input ModelTournamentRulesConditionInput {
+	Rule: ModelStringInput
+	Description: ModelStringInput
+	and: [ModelTournamentRulesConditionInput]
+	or: [ModelTournamentRulesConditionInput]
+	not: ModelTournamentRulesConditionInput
+}
+input ModelBooleanInput {
+	ne: Boolean
+	eq: Boolean
+	attributeExists: Boolean
+}
+
+input ModelActionFilterInput {
+	id: ModelIDInput
+	actionName: ModelStringInput
+	_deleted: ModelStringInput
+	Description: ModelStringInput
+	and: [ModelActionFilterInput]
+	or: [ModelActionFilterInput]
+	not: ModelActionFilterInput
+}
+
+input ModelBusinessAddressesFilterInput {
+	id: ModelIDInput
+	StreetAddress: ModelStringInput
+	StreetAddress2: ModelStringInput
+	City: ModelStringInput
+	State: ModelStringInput
+	PostalCode: ModelStringInput
+	Country: ModelStringInput
+	businessesID: ModelIDInput
+	owner: ModelStringInput
+	_deleted: ModelStringInput
+	and: [ModelBusinessAddressesFilterInput]
+	or: [ModelBusinessAddressesFilterInput]
+	not: ModelBusinessAddressesFilterInput
+}
+
+
+input ModelBusinessesFilterInput {
+	id: ModelIDInput
+	owner: ModelStringInput
+	BusinessName: ModelStringInput
+	BusinessSize: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelBusinessesFilterInput]
+	or: [ModelBusinessesFilterInput]
+	not: ModelBusinessesFilterInput
+}
+
+input ModelContactAddressesFilterInput {
+	id: ModelIDInput
+	City: ModelStringInput
+	State: ModelStringInput
+	PostalCode: ModelStringInput
+	businessesID: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	contactsID: ModelIDInput
+	and: [ModelContactAddressesFilterInput]
+	or: [ModelContactAddressesFilterInput]
+	not: ModelContactAddressesFilterInput
+}
+
+input ModelContactEmailsFilterInput {
+	id: ModelIDInput
+	Email: ModelStringInput
+	businessesID: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	contactsID: ModelIDInput
+	and: [ModelContactEmailsFilterInput]
+	or: [ModelContactEmailsFilterInput]
+	not: ModelContactEmailsFilterInput
+}
+
+input ModelContactRolesFilterInput {
+	id: ModelIDInput
+	contactsID: ModelIDInput
+	rolesID: ModelIDInput
+	businessesID: ModelIDInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelContactRolesFilterInput]
+	or: [ModelContactRolesFilterInput]
+	not: ModelContactRolesFilterInput
+}
+input ModelContactsFilterInput {
+	id: ModelIDInput
+	FirstName: ModelStringInput
+	LastName: ModelStringInput
+	businessesID: ModelIDInput
+	Height: ModelFloatInput
+	Weight: ModelFloatInput
+	Birthdate: ModelStringInput
+	Gender: ModelGenderTypesInput
+	Biography: ModelStringInput
+	PhotoId: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelContactsFilterInput]
+	or: [ModelContactsFilterInput]
+	not: ModelContactsFilterInput
+	contactsPersonPreferencesId: ModelIDInput
+	contactsPlayerSoccerSkillsId: ModelIDInput
+	contactsRefereeInformationId: ModelIDInput
+}
+
+input ModelDivisionsFilterInput {
+	id: ModelIDInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	businessesID: ModelStringInput
+	DivisionName: ModelStringInput
+	and: [ModelDivisionsFilterInput]
+	or: [ModelDivisionsFilterInput]
+	not: ModelDivisionsFilterInput
+}
+
+input ModelFieldsFilterInput {
+	id: ModelIDInput
+	fieldName: ModelStringInput
+	fieldLocation: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	businessesID: ModelStringInput
+	and: [ModelFieldsFilterInput]
+	or: [ModelFieldsFilterInput]
+	not: ModelFieldsFilterInput
+}
+
+input ModelMatchPartiesFilterInput {
+	id: ModelIDInput
+	matchID: ModelIDInput
+	matchPartyPosition: ModelMatchPartyPositionInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	businessesID: ModelStringInput
+	and: [ModelMatchPartiesFilterInput]
+	or: [ModelMatchPartiesFilterInput]
+	not: ModelMatchPartiesFilterInput
+	matchPartiesContactId: ModelIDInput
+	matchPartiesTeamId: ModelIDInput
+}
+
+input ModelMatchPartyPointsFilterInput {
+	id: ModelIDInput
+	matchParty: ModelIDInput
+	scoredAt: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelMatchPartyPointsFilterInput]
+	or: [ModelMatchPartyPointsFilterInput]
+	not: ModelMatchPartyPointsFilterInput
+	matchPartyPointsContactId: ModelIDInput
+	matchPartyPointsTeamId: ModelIDInput
+}
+
+
+input ModelMatchesFilterInput {
+	id: ModelIDInput
+	beginTime: ModelStringInput
+	matchDescription: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	businessesID: ModelStringInput
+	TFGroupMatches: ModelIDInput
+	endTime: ModelStringInput
+	and: [ModelMatchesFilterInput]
+	or: [ModelMatchesFilterInput]
+	not: ModelMatchesFilterInput
+	matchesFieldId: ModelIDInput
+}
+
+input ModelMatchesToRefereesFilterInput {
+	id: ModelIDInput
+	matchID: ModelIDInput
+	refereeRoleId: ModelRefereeTypesInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	businessesID: ModelStringInput
+	and: [ModelMatchesToRefereesFilterInput]
+	or: [ModelMatchesToRefereesFilterInput]
+	not: ModelMatchesToRefereesFilterInput
+	matchesToRefereesContactIDId: ModelIDInput
+}
+
+
+input ModelPersonPreferencesFilterInput {
+	id: ModelIDInput
+	LengthUnit: ModelMeasurementUnitTypesInput
+	WeightUnit: ModelMeasurementUnitTypesInput
+	businessesID: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelPersonPreferencesFilterInput]
+	or: [ModelPersonPreferencesFilterInput]
+	not: ModelPersonPreferencesFilterInput
+}
+
+
+input ModelPlayerPositionsFilterInput {
+	id: ModelIDInput
+	businessesID: ModelStringInput
+	Position: ModelSoccerPositionTypesInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	playersoccerskillsID: ModelIDInput
+	and: [ModelPlayerPositionsFilterInput]
+	or: [ModelPlayerPositionsFilterInput]
+	not: ModelPlayerPositionsFilterInput
+}
+
+input ModelPlayerSoccerSkillsFilterInput {
+	id: ModelIDInput
+	LeftRightFooted: ModelFootPreferenceTypesInput
+	ExperienceLevel: ModelSoccerExperienceLevelTypesInput
+	businessesID: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelPlayerSoccerSkillsFilterInput]
+	or: [ModelPlayerSoccerSkillsFilterInput]
+	not: ModelPlayerSoccerSkillsFilterInput
+}
+
+input ModelPolicyFilterInput {
+	id: ModelIDInput
+	DeniedFields: ModelStringInput
+	OnlyOnOwn: ModelBooleanInput
+	Description: ModelStringInput
+	businessesID: ModelIDInput
+	_deleted: ModelBooleanInput
+	and: [ModelPolicyFilterInput]
+	or: [ModelPolicyFilterInput]
+	not: ModelPolicyFilterInput
+	policyRoleId: ModelIDInput
+	policyActionId: ModelIDInput
+	policyResourceId: ModelIDInput
+}
+
+
+input ModelRefereeInformationFilterInput {
+	id: ModelIDInput
+	yearsOfExperience: ModelStringInput
+	isCertified: ModelBooleanInput
+	hasDoneBackgroundCheck: ModelBooleanInput
+	businessesID: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelRefereeInformationFilterInput]
+	or: [ModelRefereeInformationFilterInput]
+	not: ModelRefereeInformationFilterInput
+}
+
+input ModelResourceFilterInput {
+	id: ModelIDInput
+	ResourceName: ModelStringInput
+	Description: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelResourceFilterInput]
+	or: [ModelResourceFilterInput]
+	not: ModelResourceFilterInput
+}
+
+input ModelRoleFilterInput {
+	id: ModelIDInput
+	RoleName: ModelroleTypesInput
+	Precedence: ModelIntInput
+	Description: ModelStringInput
+	businessesID: ModelIDInput
+	_deleted: ModelBooleanInput
+	and: [ModelRoleFilterInput]
+	or: [ModelRoleFilterInput]
+	not: ModelRoleFilterInput
+}
+
+input ModelTFGroupMatchesFilterInput {
+	id: ModelIDInput
+	groupID: ModelIDInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	businessesID: ModelStringInput
+	and: [ModelTFGroupMatchesFilterInput]
+	or: [ModelTFGroupMatchesFilterInput]
+	not: ModelTFGroupMatchesFilterInput
+}
+
+input ModelTFGroupsFilterInput {
+	id: ModelIDInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	businessesID: ModelStringInput
+	tournamentID: ModelIDInput
+	groupName: ModelStringInput
+	and: [ModelTFGroupsFilterInput]
+	or: [ModelTFGroupsFilterInput]
+	not: ModelTFGroupsFilterInput
+}
+
+input ModelTFToSportsFilterInput {
+	id: ModelIDInput
+	SportType: ModelSportTypeInput
+	TournamentFormatType: ModelTournamentFormatTypeListInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelTFToSportsFilterInput]
+	or: [ModelTFToSportsFilterInput]
+	not: ModelTFToSportsFilterInput
+}
+
+input ModelTRulesToTFormatFilterInput {
+	id: ModelIDInput
+	TournamentFormatType: ModelTournamentFormatTypeInput
+	ruleID: ModelIDInput
+	_deleted: ModelBooleanInput
+	and: [ModelTRulesToTFormatFilterInput]
+	or: [ModelTRulesToTFormatFilterInput]
+	not: ModelTRulesToTFormatFilterInput
+}
+
+input ModelTeamPlayersFilterInput {
+	id: ModelIDInput
+	contactsID: ModelIDInput
+	teamsID: ModelIDInput
+	IsCaptain: ModelBooleanInput
+	businessesID: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelTeamPlayersFilterInput]
+	or: [ModelTeamPlayersFilterInput]
+	not: ModelTeamPlayersFilterInput
+}
+
+input ModelTeamsFilterInput {
+	id: ModelIDInput
+	TeamName: ModelStringInput
+	Description: ModelStringInput
+	PhotoId: ModelStringInput
+	City: ModelStringInput
+	County: ModelStringInput
+	State: ModelStringInput
+	businessesID: ModelStringInput
+	SportType: ModelSportTypeInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelTeamsFilterInput]
+	or: [ModelTeamsFilterInput]
+	not: ModelTeamsFilterInput
+}
+
+input ModelTeamsToDivisionsFilterInput {
+	id: ModelIDInput
+	teamID: ModelIDInput
+	divisionID: ModelIDInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelTeamsToDivisionsFilterInput]
+	or: [ModelTeamsToDivisionsFilterInput]
+	not: ModelTeamsToDivisionsFilterInput
+}
+
+input ModelTournamentRulesFilterInput {
+	id: ModelIDInput
+	Rule: ModelStringInput
+	Description: ModelStringInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelTournamentRulesFilterInput]
+	or: [ModelTournamentRulesFilterInput]
+	not: ModelTournamentRulesFilterInput
+}
+
+input ModelTournamentRulesVariablesFilterInput {
+	id: ModelIDInput
+	ruleVariables: ModelStringInput
+	ruleID: ModelIDInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	businessesID: ModelStringInput
+	tournamentID: ModelIDInput
+	and: [ModelTournamentRulesVariablesFilterInput]
+	or: [ModelTournamentRulesVariablesFilterInput]
+	not: ModelTournamentRulesVariablesFilterInput
+}
+
+input ModelTournamentsFilterInput {
+	id: ModelIDInput
+	businessesID: ModelStringInput
+	tournamentName: ModelStringInput
+	tournamentImageId: ModelStringInput
+	tournamentDescription: ModelStringInput
+	SportType: ModelSportTypeInput
+	TournamentFormatType: ModelTournamentFormatTypeInput
+	haveEnded: ModelBooleanInput
+	owner: ModelStringInput
+	_deleted: ModelBooleanInput
+	and: [ModelTournamentsFilterInput]
+	or: [ModelTournamentsFilterInput]
+	not: ModelTournamentsFilterInput
+}

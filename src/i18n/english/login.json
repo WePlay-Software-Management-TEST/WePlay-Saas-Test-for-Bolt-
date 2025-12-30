@@ -1,0 +1,18 @@
+{
+    "header1": "Login",
+    "header2": "or",
+    "header3": "Signup",
+    "signupBottomParagraph": "Don’t have an Account? Sign Up",
+    "paragraph": "Let’s login to your Weplay account ⚽️ ",
+    "emailPlaceholder": "Enter Email",
+    "emailLegendText": "Company Email Address",
+    "passwordPlaceholder": "Enter Password",
+    "passwordLegend": "Password",
+    "SubmitButton": "Login to Account",
+    "footerText": "Forgot your password?",
+    "usernameRequired": "Username is required",
+    "usernameInvalid": "Please Enter A Valid E-Mail Address.",
+    "passwordRequired": "Password is Required",
+    "passwordInvalid": "Password must contain at least one special character, one uppercase and one lowercase and one number"
+    
+}

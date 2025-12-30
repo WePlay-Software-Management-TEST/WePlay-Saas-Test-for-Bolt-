@@ -1,0 +1,33 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard-with-typescript",
+        "plugin:react-hooks/recommended"
+    ],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": ["./tsconfig.json"]
+    },
+    "ignorePatterns": ["src/models", "API.ts", "src/graphql"],
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "semi": ["error", "always"],
+        "@typescript-eslint/semi": ["error", "always"],
+        "react/prop-types": 0,
+        "@typescript-eslint/strict-boolean-expressions": 0
+    },
+    "settings": {
+        "react": {
+          "version": "detect"
+        }
+      }
+}

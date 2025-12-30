@@ -1,0 +1,13 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon">
+<path id="Vector 7" d="M8 3.33334L13.3333 3.33334"  stroke-linecap="round"/>
+<path id="Vector 9" d="M2.6665 12.6667L3.99984 12.6667"  stroke-linecap="round"/>
+<path id="Vector 8" d="M2.6665 3.33334L5.33317 3.33334" stroke-linecap="round"/>
+<path id="Vector 10" d="M8 12.6667L13.3333 12.6667"  stroke-linecap="round"/>
+<path id="Vector 11" d="M11.3335 8L13.3335 8"  stroke-linecap="round"/>
+<path id="Vector 12" d="M2.6665 8L7.99984 8"  stroke-linecap="round"/>
+<ellipse id="Ellipse 36" cx="6.66667" cy="3.33333" rx="1.33333" ry="1.33333" transform="rotate(90 6.66667 3.33333)" stroke-linecap="round"/>
+<ellipse id="Ellipse 37" cx="10.0002" cy="7.99999" rx="1.33333" ry="1.33333" transform="rotate(90 10.0002 7.99999)" stroke-linecap="round"/>
+<ellipse id="Ellipse 38" cx="6.00016" cy="12.6667" rx="1.33333" ry="1.33333" transform="rotate(90 6.00016 12.6667)" stroke-linecap="round"/>
+</g>
+</svg>

@@ -1,0 +1,52 @@
+{
+  "permissions": {
+    "auth": {
+      "weplaymain": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "storage": {
+      "ContactAddresses:@model(appsync)": [
+        "create",
+        "update",
+        "delete"
+      ],
+      "ContactEmails:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "Contacts:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "ContactRoles:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "weplaymainWePlayAppSyncResolversLayer",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "devenv"
+    }
+  ],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "userPoolId",
+      "environmentVariableName": "userPoolId"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "storage": {
+      "Teams:@model(appsync)": [
+        "read"
+      ],
+      "ContactEmails:@model(appsync)": [
+        "read"
+      ],
+      "Contacts:@model(appsync)": [
+        "read"
+      ],
+      "Businesses:@model(appsync)": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

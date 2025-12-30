@@ -1,0 +1,14 @@
+{
+    "headerOptionPlayers": "Players",
+    "headerOptionTeams": "Teams",
+    "headerOptionTournament": "Games",
+    "tournamentCreation": "Tournament Creation",
+    "editTourney": "Edit Tournament",
+    "createNewButton": "Create New",
+    "option1": "New Player",
+    "option2": "New Team",
+    "option3": "New Tournament",
+    "option4": "New League",
+    "headerOptionSettings": "Settings",
+    "leagueCreation": "League Creation"
+}

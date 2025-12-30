@@ -1,0 +1,24 @@
+## [Start] Authorization Steps. **
+$util.qr($ctx.stash.put("hasAuth", true))
+#set( $isAuthorized = false )
+#set( $primaryFieldMap = {} )
+#if( $util.authType() == "IAM Authorization" )
+  #set( $isAuthorized = true )
+#end
+#if( $util.authType() == "Lambda Authorization" )
+  #if( !$isAuthorized )
+    #set( $authFilter = [] )
+    #set( $role0 = $util.defaultIfNull($ctx.identity.resolverContext.get("businessId"), null) )
+    #if( !$util.isNull($role0) )
+      $util.qr($authFilter.add({"businessesID": { "eq": $role0 }}))
+    #end
+    #if( !$authFilter.isEmpty() )
+      $util.qr($ctx.stash.put("authFilter", { "or": $authFilter }))
+    #end
+  #end
+#end
+#if( !$isAuthorized && $util.isNull($ctx.stash.authFilter) )
+  $util.unauthorized()
+#end
+$util.toJson({"version":"2018-05-29","payload":{}})
+## [End] Authorization Steps. **

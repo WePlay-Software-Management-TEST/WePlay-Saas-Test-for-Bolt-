@@ -1,0 +1,28 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "storage": {
+      "Role:@model(appsync)": [
+        "create"
+      ],
+      "Policy:@model(appsync)": [
+        "create"
+      ],
+      "Resource:@model(appsync)": [
+        "create"
+      ],
+      "Action:@model(appsync)": [
+        "create"
+      ],
+      "TFToSports:@model(appsync)": [
+        "create"
+      ],
+      "TournamentRules:@model(appsync)": [
+        "create"
+      ],
+      "TRulesToTFormat:@model(appsync)": [
+        "create"
+      ]
+    }
+  }
+}

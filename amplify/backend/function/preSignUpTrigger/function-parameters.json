@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "auth": {
+      "weplaymain": [
+        "create",
+        "read",
+        "update"
+      ]
+    },
+    "storage": {
+      "ContactEmails:@model(appsync)": [
+        "read"
+      ],
+      "ContactRoles:@model(appsync)": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "weplaymainWePlayAppSyncResolversLayer",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "devenv"
+    }
+  ]
+}

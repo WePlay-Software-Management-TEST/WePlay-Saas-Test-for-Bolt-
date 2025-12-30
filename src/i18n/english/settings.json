@@ -1,0 +1,53 @@
+{
+    "SearchInputPlaceHolder": "Search settings",
+    "settingsMenu": {
+        "organization": "Organization"
+    },
+    "organization": {
+        "header": "Manage Your Organization",
+        "paragraph": "This is where you can manage your organization’s members.",
+        "subHeader": "Members",
+        "subParagraph": "Manage members of your organization",
+        "inviteButton": "Invite New Member",
+        "table": {
+            "name": "Name",
+            "email": "Email",
+            "role": "Role",
+            "actions": "Actions",
+            "deleteHoverTip": "Delete Member"
+        },
+        "userType": {
+            "admin": "Admin",
+            "referee": "Referee",
+            "owner": "Owner"
+        },
+        "inviteModal": {
+            "header": "Add Member",
+            "cancel": "Cancel",
+            "addButton": "invite Member",
+            "legendText": "Select Role"
+        },
+        "toast": {
+            "adminMsg": "Admin invitation has been sent",
+            "refereeMsg": "Referee invitation has been sent "
+        },
+        "deleteModal": {
+            "header": "Remove Member?",
+            "paragraphOne": "will be removed from ",
+            "paragraphTwo": " Facility.",
+            "confirmButton": "Remove Member",
+            "cancelButton": "Cancel",
+            "deleteConfirmation": "Member has been removed successfully"
+        },
+        "personal": {
+            "subHeader": "Personal Details",
+            "subParagraph": "Information about your personal details",
+            "updateDetailsButton": "Update Personal Details"
+        },
+        "business": {
+            "subHeader":"Business Details",
+            "subParagraph":"Information about your business details",
+            "updateDetailsButton": "Update Business Details"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "form": {
+        "gettingStartedStep": {
+            "title": "Getting Started",
+            "leaguePhoto": "League Photo",
+            "leagueDetails": "League Details",
+            "leagueNameLegend": "League Name",
+            "leagueNamePlaceHolder": "League Name",
+            "leagueDesc": "League Description",
+            "leagueDescPlaceHolder": "Type Description",
+            "nextStepBtn": "Next"
+        },
+        "cancelChangesBtn": "Cancel Changes",
+        "cancelBtn": "Cancel",
+        "createBtn": "Create League"
+    }
+}

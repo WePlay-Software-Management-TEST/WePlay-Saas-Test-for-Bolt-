@@ -1,0 +1,648 @@
+{
+  "api": {
+    "weplaymain": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "apiKeyConfig": {
+                "apiKeyExpirationDate": "2025-08-03T07:12:41.820Z",
+                "apiKeyExpirationDays": 360,
+                "description": ""
+              },
+              "authenticationType": "API_KEY"
+            },
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "AWS_LAMBDA",
+            "lambdaAuthorizerConfig": {
+              "lambdaFunction": "graphQlLambdaAuthorizer28ed4f1e",
+              "ttlSeconds": "1"
+            }
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "auth": {
+    "weplaymain": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainCustomMessage",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainPostConfirmation",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainPreTokenGeneration",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "ConfirmAndRedirectUser": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "adminActionsResolver": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "weplaymain"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainWePlayAppSyncResolversLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "createAPlayerMutation": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainWePlayAppSyncResolversLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "graphQlLambdaAuthorizer28ed4f1e": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "weplaymain"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainWePlayAppSyncResolversLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "mutationCreateTeam": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainWePlayAppSyncResolversLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "notifyUsersByEmail": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "preSignUpTrigger": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "weplaymain"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainWePlayAppSyncResolversLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "seedDynamoDBPolicyStore": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "teamsNotifyPlayersEmail": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tournamentResolver": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainWePlayAppSyncResolversLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "weplaymainCustomMessage": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "ConfirmAndRedirectUser"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "weplaymainPostConfirmation": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "weplaymainWePlayAppSyncResolversLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "weplaymainPreTokenGeneration": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "weplaymain"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "weplaymainWePlayAppSyncResolversLayer": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "lastPushTimeStamp": "2023-01-03T08:56:07.131Z",
+      "service": "amplifyhosting",
+      "type": "cicd"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_ConfirmAndRedirectUser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ConfirmAndRedirectUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_ConfirmAndRedirectUser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ConfirmAndRedirectUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_adminActionsResolver_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "adminActionsResolver"
+        }
+      ]
+    },
+    "AMPLIFY_function_adminActionsResolver_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "adminActionsResolver"
+        }
+      ]
+    },
+    "AMPLIFY_function_adminActionsResolver_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "adminActionsResolver"
+        }
+      ]
+    },
+    "AMPLIFY_function_createAPlayerMutation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createAPlayerMutation"
+        }
+      ]
+    },
+    "AMPLIFY_function_createAPlayerMutation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createAPlayerMutation"
+        }
+      ]
+    },
+    "AMPLIFY_function_graphQlLambdaAuthorizer28ed4f1e_clientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "graphQlLambdaAuthorizer28ed4f1e"
+        }
+      ]
+    },
+    "AMPLIFY_function_graphQlLambdaAuthorizer28ed4f1e_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "graphQlLambdaAuthorizer28ed4f1e"
+        }
+      ]
+    },
+    "AMPLIFY_function_graphQlLambdaAuthorizer28ed4f1e_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "graphQlLambdaAuthorizer28ed4f1e"
+        }
+      ]
+    },
+    "AMPLIFY_function_mutationCreateTeam_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "mutationCreateTeam"
+        }
+      ]
+    },
+    "AMPLIFY_function_mutationCreateTeam_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "mutationCreateTeam"
+        }
+      ]
+    },
+    "AMPLIFY_function_notifyUsersByEmail_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "notifyUsersByEmail"
+        }
+      ]
+    },
+    "AMPLIFY_function_notifyUsersByEmail_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "notifyUsersByEmail"
+        }
+      ]
+    },
+    "AMPLIFY_function_preSignUpTrigger_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "preSignUpTrigger"
+        }
+      ]
+    },
+    "AMPLIFY_function_preSignUpTrigger_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "preSignUpTrigger"
+        }
+      ]
+    },
+    "AMPLIFY_function_seedDynamoDBPolicyStore_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "seedDynamoDBPolicyStore"
+        }
+      ]
+    },
+    "AMPLIFY_function_seedDynamoDBPolicyStore_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "seedDynamoDBPolicyStore"
+        }
+      ]
+    },
+    "AMPLIFY_function_teamsNotifyPlayersEmail_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "teamsNotifyPlayersEmail"
+        }
+      ]
+    },
+    "AMPLIFY_function_teamsNotifyPlayersEmail_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "teamsNotifyPlayersEmail"
+        }
+      ]
+    },
+    "AMPLIFY_function_tournamentResolver_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tournamentResolver"
+        }
+      ]
+    },
+    "AMPLIFY_function_tournamentResolver_playerPortalUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tournamentResolver"
+        }
+      ]
+    },
+    "AMPLIFY_function_tournamentResolver_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tournamentResolver"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainCustomMessage_clientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainCustomMessage_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainCustomMessage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainPostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainPostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainPreTokenGeneration_accessKeyId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainPreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainPreTokenGeneration_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainPreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainPreTokenGeneration_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainPreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainPreTokenGeneration_secretAccessKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainPreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainWePlayAppSyncResolversLayer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainWePlayAppSyncResolversLayer"
+        }
+      ]
+    },
+    "AMPLIFY_function_weplaymainWePlayAppSyncResolversLayer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "weplaymainWePlayAppSyncResolversLayer"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "s3weplaymainstorage799b9673": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
+  }
+}

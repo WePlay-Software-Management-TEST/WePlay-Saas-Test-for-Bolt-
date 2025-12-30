@@ -1,0 +1,97 @@
+{
+    "wePlay": "WePlay",
+    "sidePanelText": "Powerful Recreational Software Made Easy",
+    "emailStep": {
+        "headerLine1": "Sign Up",
+        "headerLine2": "or",
+        "headerLine3": "Login",
+        "paragraph": "Create an account to start using WePlay ⚽️ ",
+        "emailInputPlaceHolder": "Enter email",
+        "emailLegendText": "Company Email Address",
+        "emailIsRequired": "Email is Required",
+        "emailDoesntMeetRegex": "Please Enter A Valid E-Mail Address.",
+        "submitButton": "Create New Account",
+        "bottomParagraph": "Already have an account? Login"
+    },
+    "emailSentStep": {
+        "header": "Almost There!",
+        "paragraph1": "Please verify the account to the email we sent to ",
+        "paragraph2": ", this step is required to start using WePlay.",
+        "paragraph3": "If you entered the wrong email address, you can start the process again by ",
+        "paragraphAnchor": "clicking here.",
+        "resendButtonText": "Re-send Email",
+        "confirmationEmailHaveBeenSent": "E-mail have been re-sent.",
+        "backButton": "Go Back"
+    },
+    "passwordStep": {
+        "header": "Create Password",
+        "paragraph": "Now that your email is verified, let’s create your password. Make sure they match.",
+        "passwordLegendText": "Enter Password",
+        "passwordPlaceholder": "Enter Password",
+        "passwordErrPlaceHolder": "Use minimum 8 words with uppercase, lowercase, and numbers",
+        "passwordCorrectPlaceHolder": "Password strength: Strong",
+        "passwordIsrequiredText": "This Field is Required",
+        "passwordDoesntMeetRegex": "Password must contain at least one special character, one uppercase and one lowercase and one number",
+        "passwordDoesntMeetMinLength": "Password must be over 8 characters",
+        "confirmpasswordLegendText": "Re-type Your Password",
+        "confirmpasswordPlaceholder": "Enter password again",
+        "confirmpasswordErrPlaceHolder": "Enter the same password as before",
+        "confirmpasswordCorrectPlaceHolder": "Passwords Match!",
+        "confirmpasswordDoesntMatch": "Passwords Don't match",
+        "nextButton": "Continue"
+    },
+    "userInfoStep": {
+        "header": "Almost There!",
+        "Paragraph": "We need your name to provide you with a great experience.",
+        "stepCompletedText": "STEP 1",
+        "stepsRemain": " of 2",
+        "firstNameLegendText": "First Name",
+        "firstNamePlaceholder": "Enter your first name",
+        "lastNameLegendText": "Last Name",
+        "lastNamePlaceholder": "Enter your last name",
+        "nextButton": "Next"
+    },
+    "businessInfoStep": {
+        "header": "One More Step! 🎉",
+        "paragraph": "One more step to create your WePlay account. We’re already excited for you!",
+        "stepCompletedText": "STEP 2",
+        "stepsRemain": " of 2",
+        "businessNameLegendText": "Business Name",
+        "businessNamePlaceholder": "Enter Company Name",
+        "businessSizeLegendText": "Business Size",
+        "header2": "Headquarter Location",
+        "paragraph2": "What is the address for your facility, or your main facility in the case you have multiple locations.",
+        "mailingAddressLegend": "Facility Mailing Address",
+        "mailingAddressPlaceholder": "Enter Address",
+        "cityLegend": "City",
+        "cityplaceholder": "Type here",
+        "stateLegend": "State",
+        "stateplaceholder": "Type state",
+        "zipcodeLegend": "Zip Code",
+        "zipcodeplaceholder": "Type here",
+        "nextButton": "Create Account",
+        "backButton": "Back"
+    },
+    "refereeInformation": {
+        "header": "Personal Information! 🙌🏼",
+        "paragraph": "Let’s complete the last step.",
+        "profileBioLegend": "Profile Bio",
+        "profileBioPlaceholder": "Enter Bio",
+        "yearsOfExpLegend": "Years of experience",
+        "physicalLocationLegend": "Physical Location",
+        "certifiedHeader": "Are you certified?",
+        "certifiedOption1": "Yes",
+        "certifiedOption2": "No",
+        "backGroundCheckHeader": "Have you recently done a background check?",
+        "backgroundOption1": "Yes",
+        "backgroundOption2": "No" 
+    },
+    "accountCreated": {
+        "header": "Account Completed!",
+        "paragraph": "We're taking you to the player journey."
+    },
+    "optionalTag": "optional"
+
+
+    
+}

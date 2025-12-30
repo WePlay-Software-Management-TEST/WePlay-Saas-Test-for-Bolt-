@@ -1,0 +1,15 @@
+{
+    "players": "Players",
+    "teams": "Teams",
+    "games": "Games",
+    "settings": "Settings",
+    "help": "Help & Feedback",
+    "logout": "Logout",
+    "logoutModal": {
+        "header": "Logout From WePlay?",
+        "paragraph": "Are you sure you want to logout from WePlay. You can again sign-in later using your credentials.",
+        "confirmText": "Logout From WePlay",
+        "closeText": "Stay Logged In"
+    }
+    
+}

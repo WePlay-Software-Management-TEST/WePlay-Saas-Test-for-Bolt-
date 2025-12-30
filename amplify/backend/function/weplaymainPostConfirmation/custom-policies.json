@@ -1,0 +1,11 @@
+[
+  {
+    "Effect": "Allow",
+      "Action": [
+        "cognito-idp:AdminUpdateUserAttributes"
+      ],
+      "Resource": [
+        "arn:aws:cognito-idp:us-west-1:610453888207:userpool/*"
+      ]
+  }
+]
