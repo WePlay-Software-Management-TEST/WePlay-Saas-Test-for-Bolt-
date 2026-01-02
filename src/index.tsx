@@ -4,13 +4,9 @@ import './index.css';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import awsExports from './aws-exports.js';
-import { Amplify } from 'aws-amplify';
 import { AuthProvider } from 'core/context/userContext/userContext.provider';
 import ImageCacheProvider from 'core/context/imageCacheContext/imageCacheContext.provider';
 import { AllowedAuthProvider } from 'core/context/authContext/authContext.provider';
-
-Amplify.configure(awsExports);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

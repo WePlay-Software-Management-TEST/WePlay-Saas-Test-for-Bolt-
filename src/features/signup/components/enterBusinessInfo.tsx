@@ -169,7 +169,7 @@ function EnterBusinessInfo (props: React.PropsWithChildren<{
       // TODO: Create a JS resolver, that creates contact, contactRole, business.
       await loginRequest({ username: form.email.value.email, password: form.passowrd.value.password })
         .then(async (res) => {
-          await createAccount(form, res.username, res.attributes['custom:BusinessId']).then(async () => {
+          await createAccount(form, res.username, res.attributes['custom:BusinessId'] || '').then(async () => {
             setShowPage(2);
             await signOut().then(async () => {
               await loginRequest({

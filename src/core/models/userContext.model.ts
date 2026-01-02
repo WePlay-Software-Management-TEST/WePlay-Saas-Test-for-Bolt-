@@ -5,8 +5,8 @@ export interface UserAttributesState {
     sub: string
     email_verified: boolean
     email: string
-    'custom:redirectUrl': string
-    'custom:BusinessId': string
+    'custom:redirectUrl'?: string
+    'custom:BusinessId'?: string
   }
   idToken: string
   role?: string

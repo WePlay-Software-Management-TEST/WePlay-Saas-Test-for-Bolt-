@@ -1,4 +1,5 @@
-import { API, Auth } from 'aws-amplify';
+import { API } from 'aws-amplify';
+import { getCurrentSession } from 'core/services/auth.service';
 import { type TeamsForm } from './hooks/teamsForm.hook';
 import { type GraphQLQuery } from '@aws-amplify/api';
 import {
@@ -29,7 +30,7 @@ import { USER_ROLES } from 'core/context/authContext/auth.context.models';
  * */
 export async function createTeam (teamsForm?: TeamsForm, photoId?: string): Promise<
 GraphQLQuery<InsertTeamMutation> | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   if (teamsForm === undefined) return;
   const teamInput: insertTeamInputModel = {
     TeamName: teamsForm.teamsName,
@@ -48,7 +49,7 @@ GraphQLQuery<InsertTeamMutation> | undefined> {
       : []
   };
   return await API.graphql<GraphQLQuery<InsertTeamMutation>>({
-    query: insertTeam, variables: { input: teamInput }, authToken: idToken.jwtToken
+    query: insertTeam, variables: { input: teamInput }, authToken: idToken
   }).then(async (res) => {
     return res.data;
   });
@@ -62,14 +63,14 @@ GraphQLQuery<InsertTeamMutation> | undefined> {
  * */
 export async function addTeamPlayers (contactsId?: string, teamId?: string, isCaptain: boolean = false): Promise<GraphQLQuery<CreateTeamPlayersMutation> | undefined> {
   if (contactsId === undefined || teamId === undefined) { return undefined; }
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   const createTeamPlayerInput: CreateTeamPlayersInput = {
     contactsID: contactsId,
     teamsID: teamId,
     IsCaptain: isCaptain
   };
   return await API.graphql<GraphQLQuery<CreateTeamPlayersMutation>>({
-    query: createTeamPlayers, variables: { input: createTeamPlayerInput }, authToken: idToken.jwtToken
+    query: createTeamPlayers, variables: { input: createTeamPlayerInput }, authToken: idToken
   }).then(async (res) => {
     return res.data;
   });
@@ -83,7 +84,7 @@ export async function addTeamPlayers (contactsId?: string, teamId?: string, isCa
  * @param {string | undefined} photoId - New PhotoID, to save in with the team.
  * */
 export async function updateTeamRequest (teamsForm: TeamsForm, team: Team, photoId: string): Promise<GraphQLQuery<UpdateTeamMutation> | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   const TeamPlayers: TeamPlayerBulkInputModel[] | null = teamsForm.teamPlayers.map((teamPlayer) => {
     return {
       contactsID: teamPlayer.value,
@@ -108,7 +109,7 @@ export async function updateTeamRequest (teamsForm: TeamsForm, team: Team, photo
       variables: {
         input: updateTeamInput
       },
-      authToken: idToken.jwtToken
+      authToken: idToken
     }
   ).then((res) => {
     return res.data;
@@ -123,9 +124,9 @@ export async function updateTeamRequest (teamsForm: TeamsForm, team: Team, photo
 export async function listTeamsRequest (ownerId: string): Promise<
 GraphQLQuery<CustomListTeamsWithContacts> | undefined> {
   const listTeamsQuery = customListTeamsWithContacts(ownerId);
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   return await API.graphql<GraphQLQuery<CustomListTeamsWithContacts>>(
-    { query: listTeamsQuery, authToken: idToken.jwtToken }
+    { query: listTeamsQuery, authToken: idToken }
   ).then((res) => {
     if (res.data?.listContacts === undefined || res.data?.listContacts?.items === undefined) return res.data;
     const contactsWithoutBusinessUsers = res.data?.listContacts?.items.filter((contact) => {
@@ -143,10 +144,10 @@ GraphQLQuery<CustomListTeamsWithContacts> | undefined> {
  * @param {String} id - Team ID that you want to get.
  * */
 export async function getTeamWithDeletedRequest (id: string): Promise<GraphQLQuery<GetTeamsQuery> | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   return await API.graphql<GraphQLQuery<GetTeamsQuery>>({
     query: getTeamWithDeletedEnabled(id),
-    authToken: idToken.jwtToken
+    authToken: idToken
   }).then((res) => (res.data));
 }
 
@@ -157,7 +158,7 @@ export async function getTeamWithDeletedRequest (id: string): Promise<GraphQLQue
  * @param { Team } team - Entire Team Object that you want to delete.
  * */
 export async function deleteTeamRequest (id: string, _version: number, team?: Team): Promise<GraphQLQuery<DeleteTeamsMutation> | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   if (team === undefined) {
     return;
   }
@@ -169,19 +170,19 @@ export async function deleteTeamRequest (id: string, _version: number, team?: Te
     return await API.graphql<GraphQLQuery<DeleteTeamsMutation>>({
       query: deleteTeams,
       variables: { input: deleteTeamInput },
-      authToken: idToken.jwtToken
+      authToken: idToken
     }).then((res) => {
       return res.data;
     });
   }
   return await API.graphql<GraphQLQuery<any>>({
     query: deleteMultiTeamPlayers(teamPlayers),
-    authToken: idToken.jwtToken
+    authToken: idToken
   }).then(async (res) => {
     return await API.graphql<GraphQLQuery<DeleteTeamsMutation>>({
       query: deleteTeams,
       variables: { input: deleteTeamInput },
-      authToken: idToken.jwtToken
+      authToken: idToken
     }).then((res) => {
       return res.data;
     });
@@ -193,7 +194,7 @@ export async function deleteTeamRequest (id: string, _version: number, team?: Te
  * @param { String } ownerId - Owner ID to filter out the results.
  * */
 export async function listContactsWithTeamPlayers (ownerId: string): Promise<GraphQLQuery<ListContactsWithTeamPlayer> | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   return await API.graphql<GraphQLQuery<ListContactsWithTeamPlayer>>({
     query: listContactsWithTeamPlayer(ownerId),
     variables:
@@ -211,7 +212,7 @@ export async function listContactsWithTeamPlayers (ownerId: string): Promise<Gra
         }
       }
     },
-    authToken: idToken.jwtToken
+    authToken: idToken
   }).then((res) => {
     if (res.data?.listContacts.items === undefined) return res.data;
     const contactsWithoutBusinessUsers = res.data?.listContacts?.items.filter((contact) => {
@@ -230,7 +231,7 @@ export async function listContactsWithTeamPlayers (ownerId: string): Promise<Gra
  * @param { number } _version - _version attribute that is associated with that TeamPlayer.
  * */
 export async function deleteTeamPlayerRequest (id?: string, _version?: number): Promise<GraphQLQuery<DeleteTeamPlayersMutation> | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   if (id === undefined) { return; }
   const teamPlayersDeleteInput: DeleteTeamPlayersInput = {
     id,
@@ -239,6 +240,6 @@ export async function deleteTeamPlayerRequest (id?: string, _version?: number): 
   return await API.graphql<GraphQLQuery<DeleteTeamPlayersMutation>>({
     query: deleteTeamPlayers,
     variables: { input: teamPlayersDeleteInput },
-    authToken: idToken.jwtToken
+    authToken: idToken
   }).then((res) => (res.data));
 }

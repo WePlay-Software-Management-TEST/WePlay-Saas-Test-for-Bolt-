@@ -11,7 +11,8 @@ import { type GoogleAutoCompleteInputProps, type InputProps, type SelectDropdown
 import { produce } from 'immer';
 import { type Businesses, type BusinessAddresses } from 'API';
 import { FormStateContext } from 'features/signup/signup';
-import { API, Auth } from 'aws-amplify';
+import { API } from 'aws-amplify';
+import { getCurrentSession } from 'core/services/auth.service';
 import { updateBusinessAddresses, updateBusinesses } from 'graphql/mutations';
 import Button from 'core/components/button/button';
 import { toastService } from 'core/services/toast.service';
@@ -164,7 +165,7 @@ export default function OrganizationSettings ({ businessDetails }: OrganizationS
     const updatePromises = [];
 
     try {
-      const { idToken } = await Auth.currentSession() as any;
+      const { idToken } = await getCurrentSession();
       const values = getValues();
 
       if (isBusinessDirty) {
@@ -176,7 +177,7 @@ export default function OrganizationSettings ({ businessDetails }: OrganizationS
         };
 
         const businessUpdate = API.graphql({
-          authToken: idToken.jwtToken,
+          authToken: idToken,
           query: updateBusinesses,
           variables: { input: businessInput }
         }) as Promise<{ data: { updateBusinesses: Businesses } }>;
@@ -195,7 +196,7 @@ export default function OrganizationSettings ({ businessDetails }: OrganizationS
         };
 
         const businessAddressUpdate = API.graphql({
-          authToken: idToken.jwtToken,
+          authToken: idToken,
           query: updateBusinessAddresses,
           variables: { input: addressInput }
         }) as Promise<{ data: { updateBusinessAddress: BusinessAddresses } }>;

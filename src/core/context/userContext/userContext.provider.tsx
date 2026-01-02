@@ -1,39 +1,76 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { Auth } from 'aws-amplify';
+import { supabase } from 'core/services/supabase.client';
 import GlobalLoadingScreen from 'core/components/misc/globalLoadingScreen';
 import { userInitialState } from './context.const';
 import { userStateReducer, UserContext } from './userContext';
 import { type UserAttributesState } from 'core/models/userContext.model';
-import { getPlayerinformation } from 'features/player/player.service';
 
 export const AuthProvider = ({ children }: { children: JSX.Element }): JSX.Element => {
   const [user, dispatch] = useReducer(userStateReducer, userInitialState);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    void Auth.currentAuthenticatedUser()
-      .then(async (responseUserResults: any) => {
-        const userInfo = await getPlayerinformation(responseUserResults.username);
-        if (responseUserResults === null || Object.keys(responseUserResults).length === 0) {
+    const checkUser = async () => {
+      try {
+        const { data: { user: supabaseUser }, error } = await supabase.auth.getUser();
+
+        if (error || !supabaseUser) {
           setIsLoading(false);
+          dispatch({ type: 'delete' });
           return;
-        };
+        }
+
+        const { data: { session } } = await supabase.auth.getSession();
+
+        if (!session) {
+          setIsLoading(false);
+          dispatch({ type: 'delete' });
+          return;
+        }
+
         const userinfoState: UserAttributesState = {
-          id: responseUserResults.username,
-          idToken: responseUserResults.signInUserSession.idToken.jwtToken,
-          username: responseUserResults.username,
-          attributes: responseUserResults.attributes,
-          role: userInfo.data?.getContacts?.ContactRoles?.items[0]?.rolesID,
-          firstName: userInfo.data?.getContacts?.FirstName,
-          lastName: userInfo.data?.getContacts?.LastName ?? '',
-          photoId: userInfo.data?.getContacts?.PhotoId ?? ''
+          id: supabaseUser.id,
+          idToken: session.access_token,
+          username: supabaseUser.email || '',
+          attributes: {
+            email: supabaseUser.email || '',
+            sub: supabaseUser.id,
+            email_verified: supabaseUser.email_confirmed_at !== null
+          }
         };
+
         dispatch({ type: 'update', userData: userinfoState });
         setIsLoading(false);
-      }).catch(() => {
+      } catch (error) {
+        console.error('Error checking user:', error);
         setIsLoading(false);
         dispatch({ type: 'delete' });
-      });
+      }
+    };
+
+    void checkUser();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        const userinfoState: UserAttributesState = {
+          id: session.user.id,
+          idToken: session.access_token,
+          username: session.user.email || '',
+          attributes: {
+            email: session.user.email || '',
+            sub: session.user.id,
+            email_verified: session.user.email_confirmed_at !== null
+          }
+        };
+        dispatch({ type: 'update', userData: userinfoState });
+      } else {
+        dispatch({ type: 'delete' });
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   if (isLoading) {

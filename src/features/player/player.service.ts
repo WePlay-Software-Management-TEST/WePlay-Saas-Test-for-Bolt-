@@ -1,4 +1,5 @@
-import { API, Storage, Auth } from 'aws-amplify';
+import { API, Storage } from 'aws-amplify';
+import { getCurrentSession } from 'core/services/auth.service';
 import {
   deleteContacts,
   insertPlayer,
@@ -34,7 +35,7 @@ export interface PutResult {
  * @throws Error if something goes wrong during the insertion process.
  */
 export async function createPlayer (playerForm: PlayerInfoForm, playerImageKey?: string): Promise<GraphQLResult<GraphQLQuery<InsertPlayerMutation>>> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   const teamsInput = playerForm.teams?.map((team) => {
     return {
       teamsID: team.value,
@@ -70,7 +71,7 @@ export async function createPlayer (playerForm: PlayerInfoForm, playerImageKey?:
   };
 
   return await API.graphql<GraphQLQuery<InsertPlayerMutation>>(
-    { query: insertPlayer, variables: { input: playerFormData }, authToken: idToken.jwtToken }
+    { query: insertPlayer, variables: { input: playerFormData }, authToken: idToken }
   ).then((res) => {
     return res;
   }).catch((error) => {
@@ -90,19 +91,19 @@ export async function createS3StoragePhoto (imageName: string, image?: File): Pr
 };
 
 export async function getPlayerinformation (playerId: string): Promise<GraphQLResult<GraphQLQuery<GetContactsQuery>>> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   return await API.graphql<GraphQLQuery<GetContactsQuery>>({
     query: customGetContacts,
     variables: {
       id: playerId
     },
-    authToken: idToken.jwtToken,
+    authToken: idToken,
     authMode: 'AWS_LAMBDA'
   });
 };
 
 export async function listContactsRequest (ownerId: string): Promise<GraphQLQuery<Partial<ListContactsQuery & ListTeamsQuery>> | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   return await API.graphql<GraphQLQuery<ListContactsQuery>>(
     {
       query: customListContacts,
@@ -117,7 +118,7 @@ export async function listContactsRequest (ownerId: string): Promise<GraphQLQuer
           }
         }
       },
-      authToken: idToken.jwtToken
+      authToken: idToken
     }
   ).then((res) => {
     if (res.data?.listContacts === undefined || res.data?.listContacts?.items === undefined) return res.data;
@@ -153,7 +154,7 @@ export async function updateS3StorageUser (imageName: string, image?: File): Pro
  * @returns A promise that resolves to the result of the GraphQL query for updating the player profile.
  */
 export async function updateProfile (playerForm: PlayerInfoForm, profilePrevInfo: CustomGetContactsQuery, playerImageKey?: string): Promise<GraphQLResult<GraphQLQuery<UpdatePlayerMutation>>> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   const teamsInput = playerForm.teams?.map((team) => {
     return {
       teamsID: team.value,
@@ -203,7 +204,7 @@ export async function updateProfile (playerForm: PlayerInfoForm, profilePrevInfo
   return await API.graphql<GraphQLQuery<UpdateContactsMutation>>({
     query: updatePlayer,
     variables: { input: updatePlayerInput },
-    authToken: idToken.jwtToken
+    authToken: idToken
   })
     .then(async (res) => {
       return res;
@@ -211,7 +212,7 @@ export async function updateProfile (playerForm: PlayerInfoForm, profilePrevInfo
 };
 
 export async function deleteProfile (id: string, _version: number): Promise<GraphQLQuery<DeleteContactsMutation> | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   const deleteContactInput: DeleteContactsInput = {
     id,
     _version
@@ -220,6 +221,6 @@ export async function deleteProfile (id: string, _version: number): Promise<Grap
   return await API.graphql<GraphQLQuery<DeleteContactsMutation>>({
     query: deleteContacts,
     variables: { input: deleteContactInput },
-    authToken: idToken.jwtToken
+    authToken: idToken
   }).then((res) => res.data);
 };

@@ -1,4 +1,5 @@
-import { API, Auth } from 'aws-amplify';
+import { API } from 'aws-amplify';
+import { getCurrentSession } from 'core/services/auth.service';
 import { type GraphQLResult, type GraphQLQuery } from '@aws-amplify/api';
 import {
   customListTourney, type CustomListTeamsFieldsReferees, getTourneyQuery,
@@ -206,11 +207,11 @@ function getGroupsInput (tournamentID: string, tourneyGroups?: Array<FieldArrayW
 }
 
 export async function createGameField (fieldInput: CreateFieldsInput): Promise<GraphQLQuery<CreateFieldsMutation> | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
 
   return await API.graphql<GraphQLQuery<CreateFieldsMutation>>({
     query: createFields,
-    authToken: idToken.jwtToken,
+    authToken: idToken,
     variables: {
       input: fieldInput
     }
@@ -230,7 +231,7 @@ export async function createTournamentRequest (
 ): Promise<{ imageId?: string, tournamentId?: string } | undefined> {
   const tournamentId = tourney?.id ?? uuidv4();
   const { leagueName, leagueDesc, sportType, type, image, fieldsDetails, ...remaining } = tournamentForm;
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   const TformatType = type;
   const formatRules = getTFormatRules(TformatType, rules);
 
@@ -261,7 +262,7 @@ export async function createTournamentRequest (
 
   return await API.graphql<GraphQLQuery<void>>({
     query: tournamentForm.id === undefined ? createTourney : updateTourney,
-    authToken: idToken.jwtToken,
+    authToken: idToken,
     variables: {
       input: {
         createTournament,
@@ -313,28 +314,28 @@ export async function updateFields (
       fieldLocation: input.fieldLocation
     };
   });
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
 
   await API.graphql<GraphQLQuery<void>>({
-    authToken: idToken.jwtToken,
+    authToken: idToken,
     query: updateFieldsMutation(FieldsInput)
   });
 };
 
 export async function listAllTournaments (): Promise<Tournaments[] | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   return await API.graphql<GraphQLQuery<ListTournamentsQuery>>({
     query: customListTourney,
-    authToken: idToken.jwtToken
+    authToken: idToken
   }).then((res) => res.data?.listTournaments?.items as unknown as Tournaments[]);
 };
 
 export async function getTourney (id?: string): Promise<CustomListTeamsFieldsReferees | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
 
   return await API.graphql<GraphQLQuery<CustomListTeamsFieldsReferees>>({
     query: getTourneyQuery(id),
-    authToken: idToken.jwtToken,
+    authToken: idToken,
     variables: {
       id
     }
@@ -356,7 +357,7 @@ export async function getTourney (id?: string): Promise<CustomListTeamsFieldsRef
 };
 
 export async function deleteTourneyRequest (id: string, _version: number): Promise<void> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   const deleteTourneyInput: DeleteTournamentsInput = {
     id,
     _version
@@ -365,13 +366,13 @@ export async function deleteTourneyRequest (id: string, _version: number): Promi
   await API.graphql<GraphQLQuery<DeleteTournamentsInput>>({
     query: deleteTournaments,
     variables: { input: deleteTourneyInput },
-    authToken: idToken.jwtToken
+    authToken: idToken
   }).then((res) => res.data);
 };
 
 // At the end of the update match request, return to me an object like: {groupIndex, matchIndex, teamInfo, playerWhoMov}
 export async function updateMatchRequest (matchDetails: MatchDetails, form: TournamentFormType): Promise<boolean | undefined> {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
   if (matchDetails.jsonMatch === undefined || matchDetails.jsonMatch === '') return;
   const apiMatch: Matches = JSON.parse(matchDetails.jsonMatch);
   const homePartyID = apiMatch.MatchParties?.items.find((party) => party?.matchPartyPosition === MatchPartyPosition.HOME)?.id;
@@ -395,7 +396,7 @@ export async function updateMatchRequest (matchDetails: MatchDetails, form: Tour
   const addNewMatchPartyPointsMutation = addNewmatchPoints(matchDetails, homePartyID, awayPartyId);
 
   await API.graphql<GraphQLQuery<void>>({
-    authToken: idToken.jwtToken,
+    authToken: idToken,
     query: updateMatches,
     variables: {
       input: updateMatchesInput
@@ -405,7 +406,7 @@ export async function updateMatchRequest (matchDetails: MatchDetails, form: Tour
   if (removeOldMatchPointsMutation !== undefined) {
     await Promise.all(removeOldMatchPointsMutation.map(async (matchQuery) => {
       return await API.graphql<GraphQLQuery<void>>({
-        authToken: idToken.jwtToken,
+        authToken: idToken,
         query: matchQuery
       });
     }));
@@ -414,7 +415,7 @@ export async function updateMatchRequest (matchDetails: MatchDetails, form: Tour
   if (addNewMatchPartyPointsMutation !== undefined) {
     await Promise.all(addNewMatchPartyPointsMutation.map(async (matchQuery) => {
       return await API.graphql<GraphQLQuery<void>>({
-        authToken: idToken.jwtToken,
+        authToken: idToken,
         query: matchQuery
       });
     }));
@@ -449,7 +450,7 @@ export async function updateMatchRequest (matchDetails: MatchDetails, form: Tour
 
       if (nextGroup === undefined) {
         return await API.graphql<GraphQLQuery<void>>({
-          authToken: idToken.jwtToken,
+          authToken: idToken,
           query: updateTournaments,
           variables: {
             input: {
@@ -512,7 +513,7 @@ export async function updateMatchRequest (matchDetails: MatchDetails, form: Tour
       if (updatedMatchParties !== undefined) {
         return await Promise.all(updatedMatchParties?.map(async (input) => {
           return await API.graphql<GraphQLQuery<void>>({
-            authToken: idToken.jwtToken,
+            authToken: idToken,
             query: updateMatchParties,
             variables: {
               input
@@ -530,7 +531,7 @@ export async function updateMatchRequest (matchDetails: MatchDetails, form: Tour
     };
 
     return await API.graphql<GraphQLQuery<void>>({
-      authToken: idToken.jwtToken,
+      authToken: idToken,
       query: updateMatchParties,
       variables: {
         input: matchPartyInput
@@ -540,10 +541,10 @@ export async function updateMatchRequest (matchDetails: MatchDetails, form: Tour
 };
 
 export const updateTournament = async (tournamentData: updateTournamentMutationInput): Promise<GraphQLResult<any>> => {
-  const { idToken } = await Auth.currentSession() as any;
+  const { idToken } = await getCurrentSession();
 
   return await API.graphql<GraphQLQuery<void>>({
-    authToken: idToken.jwtToken,
+    authToken: idToken,
     query: updateTournamentMutation,
     variables: { input: tournamentData }
   });
